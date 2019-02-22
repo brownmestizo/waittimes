@@ -19,7 +19,6 @@ input {
     font-size: 15px;
     padding: 5px 10px 5px 10px;
     margin: 0 auto;
-    margin-top: 10px;
     width: 100%;
     height: 40px;
     font-size: 120%;
@@ -29,11 +28,16 @@ input {
 }
 
 
+.header p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 .results-box {
     background-color: #FFF;
     padding: 20px;
 }
 
+.card-body p,
 .results-box p {
     color: #777;
     margin-bottom: 0px;

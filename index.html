@@ -20,8 +20,9 @@
 <body>
 
         
-        <div style="width: 100%; background-color: #398396; padding: 10px;">
-            <img src="images/logo.png" style="width: 70%;" />
+        <div class="header" style="width: 100%; background-color: #398396; padding: 10px; color: #FFF;">
+            <img src="images/logo.png" style="width: 70%; margin-bottom: 5px;" />
+            <p>Emergency Department Waiting Times</p>
             <input id="pac-input" class="controls" type="text" placeholder="Enter your location">
         </div>
 
@@ -29,13 +30,19 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete" async defer></script>
 
         <div id="results">
+
             <div class="results-box">
-                <h4>Royal Brisbane and Women's Hospital</h4>
+                <h4>Royal Brisbane and Women's Hospital
+                    <a href="rbwh.html">
+                        <i class="fa fa-long-arrow-alt-right"></i> 
+                    </a>
+                </h4> 
                 <p>Adult, Paediatric, Mental Health</p>
                 <p><i class="fa fa-chalkboard-teacher"></i> 60 minutes waiting time</p>
                 <p><i class="fa fa-tired"></i> Extremely busy</p>
                 <p><i class="fa fa-clock"></i> Open 24 hours</p>
             </div>
+
 
             <div class="results-box">
                 <h4>The Prince Charles Hospital</h4>
