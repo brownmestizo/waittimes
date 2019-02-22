@@ -16,13 +16,16 @@ html, body {
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0px;
-    line-height: 140%;
+    line-height: 160%;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 26px;
 }
 
+.fa {
+    font-size: 80%;
+}
 
 input {
 background-color: #fff;

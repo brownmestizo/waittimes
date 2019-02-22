@@ -10,7 +10,7 @@ function initAutocomplete() {
     mapTypeId: 'roadmap',
     panControl: false,
     gestureHandling: 'greedy',
-    zoom: 13,
+    zoom: 11,
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: false,    
