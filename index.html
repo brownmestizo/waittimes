@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wait times app</title>
+    <meta name="description" content="Wait times app">
+    <meta name="author" content="CSDS">
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+    <script src="scripts/scripts2.js"></script>
+
+</head>
+
+<body>
+
+        
+        <input id="pac-input" class="controls" type="text" placeholder="Enter your location">
+
+        <div id="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete" async defer></script>
+
+        <div id="results">
+            <div class="results-box">
+                <h2>Royal Brisbane and Women's Hospital</h2>
+                <p>Adult, Paediatric, Mental Health</p>
+                <p><i class="fa fa-chalkboard-teacher"></i> 60 minutes waiting time</p>
+                <p><i class="fa fa-tired"></i> Extremely busy</p>
+                <p><i class="fa fa-clock"></i> Open 24 hours</p>
+            </div>
+
+            <div class="results-box">
+                    <h2>The Prince Charles Hospital</h2>
+                    <p>Adult, Paediatric, Mental Health</p>
+                    <p>60 minutes waiting time</p>
+                    <p>Extremely busy</p>
+                    <p>Open 24 hours</p>
+                </div>            
+        </div>
+
+        <footer class="footer"></footer>
+        
+</body>
+</html>
