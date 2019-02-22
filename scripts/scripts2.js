@@ -9,11 +9,12 @@ function initAutocomplete() {
     center: {lat: -27.4689682, lng: 153.0234991},      
     mapTypeId: 'roadmap',
     panControl: false,
-    gestureHandling: 'greedy',
+    gestureHandling: 'cooperative',
     zoom: 11,
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: false,    
+
   });
 
   var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';

@@ -14,15 +14,6 @@ html, body {
     color: #333;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    margin: 0px;
-    line-height: 160%;
-}
-
-h2 {
-    font-size: 26px;
-}
-
 input {
 background-color: #fff;
 font-size: 15px;
@@ -43,6 +34,7 @@ font-size: 200%;
 
 .results-box p {
     color: #777;
+    margin-bottom: 0px;
 }
 
 .results-box:not(:first-of-type) {
