@@ -9,13 +9,17 @@
     <meta name="author" content="CSDS">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
     <script src="scripts/scripts2.js"></script>
+    <script src="scripts/scripts3.js"></script>    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 
 <body>
 
@@ -36,16 +40,35 @@
 
         <div class="card shadow bg-white rounded" style="width: 95%; margin: 0px auto; margin-top: 30px;">
             <div class="card-body">
-                <h4>Royal Brisbane and Women's Hospital</h4>
-                <p><i class="fa fa-chalkboard-teacher"></i> 60 minutes waiting time</p>
-                <p><i class="fa fa-tired"></i> Extremely busy</p>
-                <p><i class="fa fa-clock"></i> Open 24 hours</p>        
-                <span class="badge badge-secondary">Adult</span>    
-                <span class="badge badge-secondary">Maternity Health</span>        
+                <h4>Royal Brisbane and Women's Hospital
+                    <i class="fa fa-long-arrow-alt-right"></i> 
+                </h4> 
+                <p>
+                    <span class="inline">
+                        <i class="fas fa-clock"></i> 60 mins waiting time
+                    </span>
+                    <span class="inline">
+                        <span>&#183;</span> <i class="fas fa-car-alt"></i> 10-min drive
+                    </span>
+                </p> 
+                <p>
+                    <span class="inline">
+                        <i class="far fa-tired"></i> Extremely busy
+                    </span>
+                    <span class="inline">
+                        <span>&#183;</span> <i class="far fa-clock"></i> Open 24 hours
+                    </span>                    
+                </p>      
+            
+                <p style="margin-top: 5px;">
+                    <span class="float-right"><i class="fas fa-question-circle"></i></span>
+                    <span class="badge badge-secondary">Adult</span>    
+                    <span class="badge badge-secondary">Maternity Health</span>        
+                </p>
             </div>
         </div>        
 
-        <div class="container bg-white" style="margin-top: -50px; padding-top: 70px; padding-bottom: 20px;">
+        <div class="container bg-white" style="margin-top: -50px; margin-bottom: 5px; padding-top: 70px; padding-bottom: 20px;">
                 <div class="row">
                     <div class="col-6">
                         <button type="button" class="btn btn-primary btn-block">Get directions</button>
@@ -57,13 +80,70 @@
 
                 <div class="row" style="margin-top: 20px; margin: 0px auto; margin-top: 10px;">
                     <div class="col-12" style="border: 1px solid #EFEFEF; padding-top: 10px; padding-bottom: 5px;">
-                        <h5>Activity indicator</h5>
+                        <p class="m-b-negativefive">
+                            <span class="float-right">Refresh</span>
+                            Activity indicator <i class="fas fa-question-circle"></i>
+                        </p>
+                        <small style="margin-top: -5px;">As of 25 February 2019 06:51 am</small>
+                        <hr />
+                        <p><span class="float-right extremely-busy">Extremely busy</span>Status</p>
+                        <hr />
+                        <p><span class="float-right">9 patients</span>Patients waiting to be seen</p>
+                        <hr />
+                        <p><span class="float-right">10 patients</span>Total patients in emergency</p>
                     </div>
                     
                 </div>
         </div>
 
-        <footer class="footer"></footer>
+        <div class="container hospital-details" style="margin-bottom: 5px;">
+            <div class="row">
+                <div class="col-12 bg-white" style="margin-bottom: 1px;">
+                    <p><span class="float-right"><small>Directions</small></span><i class="fas fa-map-marker-alt"></i> Butterfield Street, Herston 4029</p>
+                </div>
+                <div class="col-12 bg-white" style="margin-bottom: 1px;">
+                    <p><i class="far fa-clock"></i> Open 24 hours</p>
+                </div>       
+                <div class="col-12 bg-white" style="margin-bottom: 1px;">
+                    <p><span class="float-right"><small>Call</small></span><i class="fas fa-phone"></i> (07) 3646 6500</p>
+                </div>                              
+            </div>
+        </div>
+
+        <div class="container bg-white other-facilities">
+            <div class="row">
+                <div class="col-12">
+                    <p>Other nearby healthcare facilities</p>
+                </div>
+                <div class="col-12">                                       
+                </div>
+            </div>
+        </div>
+        
+        <div class="scrolling-wrapper">
+
+            <div class="mini-card shadow-sm bg-white" style="margin-right: 10px;">
+                <p><strong>The Prince Charles Hospital</strong></p>
+                <p>Adult, Paediatric, Mental Health</p>
+                <p>60 minutes waiting time</p>
+                <p>Open</p>
+            </div>
+
+            <div class="mini-card shadow-sm bg-white" style="margin-right: 10px;">
+                <p><strong>Caboolture Hospital</strong></p>
+                <p>Adult, Paediatric, Mental Health</p>
+                <p>60 minutes waiting time</p>
+                <p>Open</p>
+            </div>            
+
+            <div class="mini-card shadow-sm bg-white">
+                <p><strong>Kilcoy Hospital</strong></p>
+                <p>Adult, Paediatric, Mental Health</p>
+                <p>60 minutes waiting time</p>
+                <p>Open</p>
+            </div>       
+
+        </div>
         
 </body>
 </html>
