@@ -1,6 +1,14 @@
 
 window.onload = function () {
+    
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
 
+    $('.popover-dismiss').popover({
+    trigger: 'focus'
+    });    
+    
     //Better to construct options first and then pass it as a parameter
     var options = {
         axisY:{
