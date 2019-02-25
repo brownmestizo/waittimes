@@ -100,7 +100,10 @@ a div.results-box h4 {
     display: inline-block !important;
     border-radius: 5px;
     padding: 0px 10px 5px 10px;
+    margin-bottom: 5px;
+    margin-right: 10px;
 }
+
 
 .scrolling-wrapper {
     background-color: #FFF;
@@ -116,4 +119,8 @@ a div.results-box h4 {
     background-size: 160%;
     background-position: bottom;
     background-repeat: no-repeat;
+}
+
+.hospital-bg a {
+    color: #FFF;
 }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="css/style.css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
     <script src="scripts/scripts2.js"></script>
     <script src="scripts/scripts3.js"></script>    
@@ -36,16 +37,16 @@
             <div class="row">
                 <div class="col-12">
                     <a href="index.html">
-                    <h5 style="margin: 0px;  margin-top: 20px;"><i class="fa fa-arrow-left"></i></h5>
+                        <h4 style="margin: 0px;  margin-top: 20px;">
+                            <i class="fas fa-arrow-left"></i>
+                        </h4>
                     </a>
                 </div>
             </div>
             <div class="card shadow bg-white rounded" style="width: 95%; margin: 0px auto; margin-top: 30px;">
                 <div class="card-body">
                     
-                    <h4>Royal Brisbane and Women's Hospital
-                        <i class="fa fa-long-arrow-alt-right"></i> 
-                    </h4> 
+                    <h4>Royal Brisbane and Women's Hospital</h4> 
                     <p>
                         <span class="inline">
                             <i class="fas fa-clock"></i> 60 mins wait time
@@ -65,12 +66,10 @@
                 
                     <p style="margin-top: 5px;">                 
                         <span class="float-right">
-                            <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" 
-                            title="Healthcare services"
-                            data-html="true" 
-                            data-content="Adult services are blah blah.<br />Maternity Health services are blah blah.">
-                                <i class="fas fa-question-circle"></i> 
-                            </a>                            
+
+                            <a data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-question-circle"></i> 
+                            </a>
                                                          
                         </span>
                         <span class="badge badge-secondary">Adult</span>    
@@ -80,12 +79,30 @@
             </div>              
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Healthcare services</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Adult - includes blah blah</p>
+                <p>Maternity Health - includes blah blah</p>
+            </div>
+            </div>
+        </div>
+        </div>
       
 
         <div class="container bg-white" style="margin-top: -50px; margin-bottom: 5px; padding-top: 70px; padding-bottom: 20px;">
                 <div class="row">
                     <div class="col-6">
-                        <a href="https://www.google.com/maps/dir/?api=1&parameters" class="btn btn-primary btn-block"><i class="fas fa-directions"></i> Get directions</a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Royal+Brisbane+and+Women's+Hospital+Emergency+Room" class="btn btn-primary btn-block">
+                            <i class="fas fa-directions"></i> Get directions</a>
                     </div>
                     <div class="col-6">
                         <a href="#" class="btn btn-primary btn-block"><i class="fas fa-share"></i> Share</a>                           
@@ -95,7 +112,7 @@
                 <div class="row" style="margin-top: 20px; margin: 0px auto; margin-top: 10px;">
                     <div class="col-12" style="border: 1px solid #EFEFEF; padding-top: 10px; padding-bottom: 5px;">
                         <p class="m-b-negativefive">
-                            <span class="float-right">Refresh</span>
+                            <span class="float-right"><a href="#">Refresh</a></span>
                             Activity indicator <i class="fas fa-question-circle"></i>
                         </p>
                         <small style="margin-top: -5px;">As of 25 February 2019 06:51 am</small>
@@ -129,7 +146,7 @@
 
         <div class="container bg-white other-facilities">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12" style="padding: 10px 15px 5px 15px;">
                     <span class="float-right"><h5><i class="fas fa-question-circle"></i></h5></span>
                     <h5>Other nearby healthcare facilities</h5>
                 </div>
@@ -140,14 +157,14 @@
         
         <div class="scrolling-wrapper" style="margin-bottom: 5px;">
 
-            <div class="mini-card shadow-sm bg-white" style="margin-right: 10px;">
+            <div class="mini-card shadow-sm bg-white">
                 <p><strong>The Prince Charles Hospital</strong></p>
                 <p>Adult, Paediatric, Mental Health</p>
                 <p>60 minutes waiting time</p>
                 <p>Open</p>
             </div>
 
-            <div class="mini-card shadow-sm bg-white" style="margin-right: 10px;">
+            <div class="mini-card shadow-sm bg-white">
                 <p><strong>Caboolture Hospital</strong></p>
                 <p>Adult, Paediatric, Mental Health</p>
                 <p>60 minutes waiting time</p>
@@ -166,10 +183,11 @@
 
         <div class="container bg-white popular-times" style="padding-bottom: 15px;">
             <div class="row">
-                <div class="col-12">
-                    <span class="float-right"><h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;"><i class="fas fa-question-circle"></i></h5></span>
-                    <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">Popular times: Tuesday</h5>
-                    <small>Tap hours to see average waiting times</small>
+                <div class="col-12" style="padding: 10px 15px 5px 15px;">
+                    <span class="float-right"><h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">
+                        <i class="fas fa-question-circle"></i></h5></span>
+                        <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">Popular times: Tuesday</h5>
+                        <small>Tap hours to see average waiting times</small>
                 </div>
                 <div class="col-12"> 
                     <div id="chartContainer" style="height: 200px; width: 100%;"></div>                                      
