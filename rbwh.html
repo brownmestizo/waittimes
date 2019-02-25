@@ -18,6 +18,10 @@
     <script src="scripts/scripts2.js"></script>
     <script src="scripts/scripts3.js"></script>    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    
 </head>
 
 
@@ -113,14 +117,15 @@
         <div class="container bg-white other-facilities">
             <div class="row">
                 <div class="col-12">
-                    <p>Other nearby healthcare facilities</p>
+                    <span class="float-right"><h5><i class="fas fa-question-circle"></i></h5></span>
+                    <h5>Other nearby healthcare facilities</h5>
                 </div>
                 <div class="col-12">                                       
                 </div>
             </div>
         </div>
         
-        <div class="scrolling-wrapper">
+        <div class="scrolling-wrapper" style="margin-bottom: 5px;">
 
             <div class="mini-card shadow-sm bg-white" style="margin-right: 10px;">
                 <p><strong>The Prince Charles Hospital</strong></p>
@@ -143,6 +148,20 @@
                 <p>Open</p>
             </div>       
 
+        </div>
+        
+
+        <div class="container bg-white popular-times" style="padding-bottom: 15px;">
+            <div class="row">
+                <div class="col-12">
+                    <span class="float-right"><h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;"><i class="fas fa-question-circle"></i></h5></span>
+                    <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">Popular times: Tuesday</h5>
+                    <small>Tap hours to see average waiting times</small>
+                </div>
+                <div class="col-12"> 
+                    <div id="chartContainer" style="height: 200px; width: 100%;"></div>                                      
+                </div>
+            </div>
         </div>
         
 </body>
