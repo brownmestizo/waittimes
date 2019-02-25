@@ -1,10 +1,8 @@
-/* Always set the map height explicitly to define the size of the div
-* element that contains the map. */
+
 #map {
-height: 40%;
+    height: 40%;
 }
 
-/* Optional: Makes the sample page fill the window. */
 html, body {
     height: 100%;
     background: #EFEFEF;
@@ -17,7 +15,6 @@ html, body {
 p {
     margin: 0px;
 }
-
 
 input {
     background-color: #fff;
@@ -32,11 +29,11 @@ input {
     border: 0px;
 }
 
-
 .header p {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
 .results-box {
     background-color: #FFF;
     padding: 20px;
@@ -69,7 +66,6 @@ a, a:active, a:focus, a:hover {
     text-decoration: none;
 }
 
-
 a div.results-box h4 {
     color: #000;
 }
@@ -86,8 +82,17 @@ a div.results-box h4 {
     margin: 8px 0;
 }
 
+.extreme,
 .extremely-busy {
     color: red;
+}
+
+.normal {
+    color: green;
+}
+
+.busy {
+    color: orange;
 }
 
 .other-facilities .card .card-body {
@@ -103,7 +108,6 @@ a div.results-box h4 {
     margin-bottom: 5px;
     margin-right: 10px;
 }
-
 
 .scrolling-wrapper {
     background-color: #FFF;

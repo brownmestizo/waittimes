@@ -1,6 +1,9 @@
 var hospitals = [
   ['Royal Brisbane and Women Hospital', -27.44769905, 153.02678809, 4, 'Adult, Paediatric'],
   ['The Prince Charles Hospital', -27.3906023, 153.0228118, 4, 'Adult, Mental Health'],  
+  ['Caboolture Hospital', -27.0803195, 152.9636415, 4, 'Adult, Mental Health'],  
+  ['Redcliffe Hospital', -27.2277137, 153.1044078, 4, 'Adult, Mental Health'],  
+  ['Kilcoy Hospital', -26.9409782, 152.5613436, 4, 'Adult, Mental Health'],        
 ];
 
 function initAutocomplete() {
