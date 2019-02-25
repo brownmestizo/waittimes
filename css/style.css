@@ -110,3 +110,10 @@ a div.results-box h4 {
     white-space: nowrap;    
     -webkit-overflow-scrolling: touch;
 }
+
+.hospital-bg {
+    background-image: url('../images/rbwh.jpg');
+    background-size: 160%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
