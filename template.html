@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">    
     <link rel="stylesheet" href="css/style.css" />
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>    
@@ -23,8 +25,8 @@
     <script type="text/javascript" src="scripts/scripts2.js"></script>
     <script type="text/javascript" src="scripts/scripts3.js"></script>    
 
-    <!-- Load jQuery and Sheetrock from CDNJS -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>     
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>   
+    <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
 </head>
 
 
@@ -201,8 +203,16 @@
                         <small>Tap hours to see average waiting times</small>
                 </div>
                 <div class="col-12"> 
-                    <div id="chartContainer1" style="height: 170px; width: 100%;"></div>                                      
-                </div>                
+                    <div class="owl-carousel owl-theme">
+                        <div class="item" id="chartContainer1" style="height: 170px; width: 100%;"></div>      
+                        <div class="item" id="chartContainer2" style="height: 170px; width: 100%;"></div>
+                        <div class="item" id="chartContainer3" style="height: 170px; width: 100%;"></div>      
+                        <div class="item" id="chartContainer4" style="height: 170px; width: 100%;"></div>
+                        <div class="item" id="chartContainer5" style="height: 170px; width: 100%;"></div>      
+                        <div class="item" id="chartContainer6" style="height: 170px; width: 100%;"></div>
+                        <div class="item" id="chartContainer7" style="height: 170px; width: 100%;"></div>
+                    </div>
+                </div>                                   
             </div>
         </div>
 
