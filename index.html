@@ -20,7 +20,13 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>   
     <script type="text/javascript" src="scripts/scripts2.js"></script>
-    <script type="text/javascript" src="scripts/scripts3.js"></script>        
+    <script type="text/javascript" src="scripts/sidebar.js"></script>    
+
+    <script type="text/javascript">
+        $.getJSON('https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJq42btARakWsRc_2RE3AiX10&fields=name,rating,formatted_phone_number&key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8', function(data) {            
+            console.log(data);
+        });    
+    </script>
 </head>
 
 <body>
@@ -43,11 +49,13 @@
         <input id="pac-input" class="controls" type="text" placeholder="Enter your location">
     </div>
 
+    
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete" async defer></script>
 
     <div id="results">
-        
+        <div class="mypanel"></div>
+       
         <!--
         <div id="items">
             <img src="images/spinner.gif" class="clearfix" style="width: 25%; margin: 0px auto; display: block;" />
@@ -82,6 +90,8 @@
             </a>            
         </script>        
 
+
+
     </div>
     <script type="text/javascript">
         var templateHospitalName = Handlebars.compile($('#item-template').html());
@@ -90,7 +100,7 @@
             url: mySpreadsheet,
             query: "select * order by D",            
             rowTemplate: templateHospitalName
-        });            
+        });      
     </script>          
 </body>
 </html>
