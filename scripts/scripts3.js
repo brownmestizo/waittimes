@@ -1,6 +1,18 @@
+function sidebar_open() {
+    document.getElementById("sidebar").style.display = "block";
+}
+
+function sidebar_close() {
+    document.getElementById("sidebar").style.display = "none";
+}    
+
 
 window.onload = function () {
-    
+
+    $('#refresh').click(function () {
+        location.reload();
+    });
+
     //Better to construct options first and then pass it as a parameter
     var options = {
         axisY:{

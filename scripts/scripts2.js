@@ -17,15 +17,7 @@ function initAutocomplete() {
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: false,    
-
   });
-
-  var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
-  var icons = {
-    hospital: {
-      icon: iconBase + 'grn-stars.png'
-    },
-  };
 
 
   var styles = [
@@ -41,10 +33,15 @@ function initAutocomplete() {
   var input = /** @type {HTMLInputElement} */ (document.getElementById('pac-input',));
   /* map.controls[google.maps.ControlPosition.TOP_LEFT].push(input); */
   /* this is what binds the search box to the map */
+  var options = {
+    componentRestrictions: {country: 'au'}
+  };
 
   var searchBox = new google.maps.places.SearchBox(
-    /** @type {HTMLInputElement} */ (input),
+    /** @type {HTMLInputElement} */ (input),(options)
   );
+
+
 
   // [START region_getplaces]
   // Listen for the event fired when the user selects an item from the
@@ -84,7 +81,7 @@ function initAutocomplete() {
         map.fitBounds(place.geometry.viewport);
       } else {
         map.setCenter(place.geometry.location);
-        map.setZoom(5); // Why 17? Because it looks good.
+        map.setZoom(5); 
       }
     }
   });
@@ -111,6 +108,9 @@ function initAutocomplete() {
       }
     }
 
+    var iconImage = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+
     // Create markers which should be visible
     for (var i = 0; i < hospitals.length; i++) {
       var placeLatLng = hospitals[i];
@@ -121,7 +121,7 @@ function initAutocomplete() {
           position: myLatLng,
           map: map,
           title: placeLatLng[0],
-          icon: icons['hospital'].icon,
+          icon: iconImage,
         });
         place_markers.push(marker);
       }
@@ -129,15 +129,6 @@ function initAutocomplete() {
     // end places markers
   });
 }
-
-function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-}
-
 
 google.maps.event.addDomListener(window, 'load', initialize);
 

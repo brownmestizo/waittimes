@@ -1,8 +1,3 @@
-
-#map {
-    height: 40%;
-}
-
 html, body {
     height: 100%;
     background: #EFEFEF;
@@ -29,6 +24,69 @@ input {
     border: 0px;
 }
 
+hr {
+    margin: 5px 0px !important;
+}
+
+a, a:active, a:focus, a:hover {
+    text-decoration: none;
+}
+
+a div.results-box h4 {
+    color: #000;
+}
+
+.sidebar {
+    height: 100%;
+    width: 50%;
+    background-color: #306e7d;
+    position: fixed !important;
+    z-index: 1;
+    right: 0px;
+    overflow: auto;
+    color: #FFF;
+}
+
+.sidebar a {
+    display: block;
+    clear: both;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    display: block;
+    width: 100%;
+    padding: 15px 20px 10px 20px;
+    border-bottom: 1px solid #224d58;
+}
+
+#map {
+    height: 40%;
+}
+
+.header {
+    width: 100%; 
+    background-color: #398396; 
+    padding: 10px 15px 15px 15px; 
+    color: #FFF;
+}
+
+.header i {
+    color: #FFF;
+    display: inline-block;
+    height: 100%;
+}
+
+.header img.logo {
+    width: 70%;   
+    display: block;
+}
+
 .header p {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -46,9 +104,6 @@ input {
     margin-bottom: 0px;
 }
 
-hr {
-    margin: 5px 0px !important;
-}
 
 .m-b-none {
     margin-bottom: 0px;
@@ -62,13 +117,7 @@ hr {
     margin-top: 5px;
 }
 
-a, a:active, a:focus, a:hover {
-    text-decoration: none;
-}
 
-a div.results-box h4 {
-    color: #000;
-}
 
 .badge-secondary {
     font-size: 95%;

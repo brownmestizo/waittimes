@@ -16,7 +16,7 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $.getJSON('https://api.sheety.co/2cc2046d-a434-4788-bff8-b48644cf6b97', function(data) {
@@ -60,9 +60,23 @@
 </head>
 
 <body>
-        
-    <div class="header" style="width: 100%; background-color: #398396; padding: 10px; color: #FFF;">
-        <img src="images/logo.png" style="width: 70%; margin-bottom: 5px;" />
+
+    <div class="sidebar shadow" style="display:none;" id="sidebar">
+        <ul>
+            <li onClick="sidebar_close()">Close</li>
+            <li>Help</li>
+            <li>About this project</li>
+        </ul>      
+    </div>
+            
+    <div class="header">
+        <div class="" style="vertical-align: middle;">
+            <button class="float-right" onclick="sidebar_open()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <img class="logo" src="images/logo.png" />
+        </div>
+
         <p>Emergency Department Waiting Times</p>
         <input id="pac-input" class="controls" type="text" placeholder="Enter your location">
     </div>
