@@ -27,7 +27,7 @@
     </script>
     <script id="item-template" type="text/x-handlebars-template">
         {{#each this}}
-            <a href="rbwh.html">
+            <a href="template.html?hospital=RBWH">
                 <div class="results-box">
                     <h4>{{hospitalName}}
                         <i class="fa fa-long-arrow-alt-right"></i> 
@@ -71,9 +71,7 @@
             
     <div class="header">
         <div class="" style="vertical-align: middle;">
-            <button class="float-right" onclick="sidebar_open()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <i class="fas fa-bars float-right" onclick="sidebar_open()" style="line-height:45px;"></i>
             <img class="logo" src="images/logo.png" />
         </div>
 

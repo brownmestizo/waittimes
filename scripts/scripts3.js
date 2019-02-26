@@ -6,6 +6,20 @@ function sidebar_close() {
     document.getElementById("sidebar").style.display = "none";
 }    
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
 
 window.onload = function () {
 
@@ -14,7 +28,7 @@ window.onload = function () {
     });
 
     //Better to construct options first and then pass it as a parameter
-    var options = {
+    var options1 = {
         axisY:{
             title: "",
             tickLength: 0,
@@ -34,7 +48,7 @@ window.onload = function () {
                 { label: "8:00", y: 14  },
                 { label: " ",  y: 18  },
                 { label: "10:00",  y: 20  },
-                 { label: " ",  y: 19  },
+                { label: " ",  y: 19  },
                 { label: "12:00",  y: 18  },  
                 { label: " ",  y: 17  },
                 { label: "14:00",  y: 16  },
@@ -57,6 +71,6 @@ window.onload = function () {
         ]
     };
     
-    $("#chartContainer").CanvasJSChart(options);
-    }
+    $("#chartContainer1").CanvasJSChart(options1);
+}
     
