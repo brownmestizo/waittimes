@@ -17,44 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
     <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $.getJSON('https://api.sheety.co/2cc2046d-a434-4788-bff8-b48644cf6b97', function(data) {
-                var template = Handlebars.compile($('#item-template').html())
-                $('#items').html(template(data))
-            })
-        })
-    </script>
-    <script id="item-template" type="text/x-handlebars-template">
-        {{#each this}}
-            <a href="template.html?hospital=RBWH">
-                <div class="results-box">
-                    <h4>{{hospitalName}}
-                        <i class="fa fa-long-arrow-alt-right"></i> 
-                    </h4> 
-                    <p>{{services}}</p>
-                    <p>
-                        <span class="inline">
-                            <i class="fas fa-clock"></i> {{waitTime}} mins waiting time
-                        </span>
-                        <span class="inline">
-                            <span>&#183;</span> <i class="fas fa-car-alt"></i> {{drive}}-min drive
-                        </span>
-                    </p> 
-                    <p>
-                        <span class="inline {{colorStatus}}">
-                            <i class="far fa-tired"></i> {{status}}
-                        </span>
-                        <span class="inline">
-                            <span>&#183;</span> <i class="far fa-clock"></i> {{availability}}
-                        </span>                    
-                    </p>
-                </div>
-            </a>            
-        {{/each}}
-    
-    </script>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>   
     <script type="text/javascript" src="scripts/scripts2.js"></script>
     <script type="text/javascript" src="scripts/scripts3.js"></script>        
 </head>
@@ -83,13 +47,50 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete" async defer></script>
 
     <div id="results">
-
+        
+        <!--
         <div id="items">
             <img src="images/spinner.gif" class="clearfix" style="width: 25%; margin: 0px auto; display: block;" />
             <h4 class="text-center" style="margin-top: -10px;">Loading hospitals</h4>
         </div>
+        -->
+
+        <script id="item-template" type="text/x-handlebars-template">
+            <a href="template.html?id={{cells.ID}}">
+                <div class="results-box">
+                    <h4>{{cells.HospitalName}}
+                        <i class="fa fa-long-arrow-alt-right"></i> 
+                    </h4> 
+                    <p>{{cells.Services}}</p>
+                    <p>
+                        <span class="inline">
+                            <i class="fas fa-clock"></i> {{cells.WaitTime}} mins waiting time
+                        </span>
+                        <span class="inline">
+                            <span>&#183;</span> <i class="fas fa-car-alt"></i> {{cells.Drive}}-min drive
+                        </span>
+                    </p> 
+                    <p>
+                        <span class="inline {{colorStatus}}">
+                            <i class="far fa-tired"></i> {{cells.Status}}
+                        </span>
+                        <span class="inline">
+                            <span>&#183;</span> <i class="far fa-clock"></i> {{cells.Availability}}
+                        </span>                    
+                    </p>
+                </div>
+            </a>            
+        </script>        
 
     </div>
-        
+    <script type="text/javascript">
+        var templateHospitalName = Handlebars.compile($('#item-template').html());
+        var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
+        $("#results").sheetrock({
+            url: mySpreadsheet,
+            query: "select * order by D",            
+            rowTemplate: templateHospitalName
+        });            
+    </script>          
 </body>
 </html>

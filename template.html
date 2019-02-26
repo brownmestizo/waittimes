@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-12">
                     <a href="index.html">
-                        <h4 style="margin: 0px;  margin-top: 20px;">
+                        <h4 style="margin: 0px; margin-top: 20px;">
                             <i class="fas fa-arrow-left"></i>
                         </h4>
                     </a>
@@ -193,7 +193,6 @@
 
         </div>
         
-
         <div class="container bg-white popular-times" style="padding-bottom: 15px;">
             <div class="row">
                 <div class="col-12" style="padding: 10px 15px 5px 15px;">
@@ -218,15 +217,15 @@
 
     
     <script type="text/javascript">
-        var hospitalShortCode = getUrlParameter('hospital');
+        var facilityID = getUrlParameter('id');
         var templateHospitalName = Handlebars.compile($('#hospitalDetails').html());
         var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
         $("#hospitalPage").sheetrock({
             url: mySpreadsheet,
-            query: "select B,C,D,E,F,G,H,I where C = '" + hospitalShortCode + "'",
+            query: "select A,B,C,D,E,F,G,H,I where A = " + facilityID,
             rowTemplate: templateHospitalName
         });            
-        
+
     </script>           
 </body>
 </html>
