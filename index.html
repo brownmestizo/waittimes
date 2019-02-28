@@ -66,26 +66,18 @@
                 {{#each this}}
                     <a href="template.html?id=1">
                         <div class="results-box">
-                            <h4>{{name}}
-                                <i class="fa fa-long-arrow-alt-right"></i> 
-                            </h4> 
-                            <p>{{services}}</p>
-                            <p>
-                                <span class="inline">
-                                    <i class="fas fa-clock"></i> {{waitTime}} mins waiting time
-                                </span>
-                                <span class="inline">
-                                    <span>&#183;</span> <i class="fas fa-car-alt"></i> {{drive}}-min drive
-                                </span>
-                            </p> 
-                            <p>
-                                <span class="inline {{colorStatus}}">
-                                    <i class="far fa-tired"></i> {{status}}
-                                </span>
-                                <span class="inline">
-                                    <span>&#183;</span> <i class="far fa-clock"></i> {{availability}}
-                                </span>                    
-                            </p>
+                            <h4 class="m-b-none">{{name}}</h4> 
+                            <p>{{address}}</p>
+                            {{#if openNow}}
+                                <p>Open
+                                {{#with (lookup openingHours day) as |day|}}
+                                    {{this}}
+                                {{/with}}
+                                </p>
+                            {{/if}}
+                            {{#unless openNow}}
+                                <p>Closed today</p>
+                            {{/unless}}
                         </div>
                     </a>   
                 {{/each}}
@@ -96,9 +88,7 @@
             <script id="item-template" type="text/x-handlebars-template">
                 <a href="template.html?id={{cells.ID}}">
                     <div class="results-box">
-                        <h4>{{cells.HospitalName}}
-                            <i class="fa fa-long-arrow-alt-right"></i> 
-                        </h4> 
+                        <h4>{{cells.HospitalName}}</h4> 
                         <p>{{cells.Services}}</p>
                         <p>
                             <span class="inline">

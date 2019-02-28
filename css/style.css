@@ -95,6 +95,8 @@ a div.results-box h4 {
 .results-box {
     background-color: #FFF;
     padding: 20px;
+    border-radius: 5px;
+    margin: 7px;
 }
 
 .card-body p,

@@ -53,6 +53,9 @@ function initAutocomplete() {
   }
   */
 
+  var tdate = new Date();
+  var dd = tdate.getDay();
+
  
   function findDetail(varPlaceID) {
     return new Promise(function(resolve,reject) {
@@ -60,9 +63,12 @@ function initAutocomplete() {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             var x = {
               name: place.name, 
-              rating: place.rating,
+              contact: place.international_phone_number,
               openNow: place.opening_hours['open_now'],
               openingHours: place.opening_hours['weekday_text'],
+              address: place.formatted_address,
+              website: place.website,
+              day: dd-1,
             };
             resolve(x);
         } else {
