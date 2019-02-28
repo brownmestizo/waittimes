@@ -6,7 +6,19 @@ var hospitals = [
   ['Kilcoy Hospital', -26.9409782, 152.5613436, 4, 'Adult, Mental Health'],        
 ];
 
+var facilities = [
+  ['ChIJq42btARakWsRc_2RE3AiX10'],
+  ['ChIJuYG0owRakWsRonDlV5Rb484'], 
+  ['ChIJ4-5FqB1akWsRWePEyPHqvE8'],
+  ['ChIJl4VBVBtakWsR3QDaWKqwl1k'],
+  ['ChIJ78UCMgNakWsRzARKY82qVhc'],
+  ['ChIJrfKI5RxakWsRx49v3XU-JCw'],
+  ['ChIJq6qqqgNakWsRopqNaL_Ns3E'],
+  ['ChIJIcHwvQJakWsRh0p53B09njE']
+]
+
 function initAutocomplete() {
+
   var markers = [];
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -27.4689682, lng: 153.0234991},      
@@ -18,6 +30,62 @@ function initAutocomplete() {
     streetViewControl: false,
     fullscreenControl: false,    
   });
+
+  var service = new google.maps.places.PlacesService(map);
+  var edtemplate = Handlebars.compile($('#ed-template').html());
+  var facilityDetails = [];
+
+  /*
+  function fetchGooglePlaceDetails(varPlaceID) {
+    service.getDetails({
+      placeId: varPlaceID  
+      }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            var x = {
+              name: place.name, 
+              rating: place.rating,
+              openNow: place.opening_hours['open_now'],
+              openingHours: place.opening_hours['weekday_text'],
+            };
+            //console.log(x);
+          }
+    }); 
+  }
+  */
+
+ 
+  function findDetail(varPlaceID) {
+    return new Promise(function(resolve,reject) {
+      service.getDetails({placeId: varPlaceID}, function(place,status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            var x = {
+              name: place.name, 
+              rating: place.rating,
+              openNow: place.opening_hours['open_now'],
+              openingHours: place.opening_hours['weekday_text'],
+            };
+            resolve(x);
+        } else {
+          reject(status);
+        }
+      });
+    });
+  } 
+
+  var promises = [];
+
+  for (var i = 0; i < facilities.length; i++) {
+    promises.push(findDetail(facilities[i]));
+  }
+
+  Promise.all(promises)
+  .then(function(results){
+    facilityDetails = results;
+    console.log(facilityDetails);
+    var compiledData = edtemplate(facilityDetails);
+    document.getElementById('eds').innerHTML = compiledData;    
+  });
+
 
 
   var styles = [

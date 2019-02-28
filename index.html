@@ -22,11 +22,8 @@
     <script type="text/javascript" src="scripts/scripts2.js"></script>
     <script type="text/javascript" src="scripts/sidebar.js"></script>    
 
-    <script type="text/javascript">
-        $.getJSON('https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJq42btARakWsRc_2RE3AiX10&fields=name,rating,formatted_phone_number&key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8', function(data) {            
-            console.log(data);
-        });    
-    </script>
+    <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+
 </head>
 
 <body>
@@ -51,10 +48,11 @@
 
     
     <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete&fields=name,rating,formatted_address,opening_hours" async defer></script>
 
     <div id="results">
-        <div class="mypanel"></div>
+
+
        
         <!--
         <div id="items">
@@ -63,32 +61,65 @@
         </div>
         -->
 
-        <script id="item-template" type="text/x-handlebars-template">
-            <a href="template.html?id={{cells.ID}}">
-                <div class="results-box">
-                    <h4>{{cells.HospitalName}}
-                        <i class="fa fa-long-arrow-alt-right"></i> 
-                    </h4> 
-                    <p>{{cells.Services}}</p>
-                    <p>
-                        <span class="inline">
-                            <i class="fas fa-clock"></i> {{cells.WaitTime}} mins waiting time
-                        </span>
-                        <span class="inline">
-                            <span>&#183;</span> <i class="fas fa-car-alt"></i> {{cells.Drive}}-min drive
-                        </span>
-                    </p> 
-                    <p>
-                        <span class="inline {{colorStatus}}">
-                            <i class="far fa-tired"></i> {{cells.Status}}
-                        </span>
-                        <span class="inline">
-                            <span>&#183;</span> <i class="far fa-clock"></i> {{cells.Availability}}
-                        </span>                    
-                    </p>
-                </div>
-            </a>            
-        </script>        
+        <div id="eds">
+            <script id="ed-template" type="text/x-handlebars-template">
+                {{#each this}}
+                    <a href="template.html?id=1">
+                        <div class="results-box">
+                            <h4>{{name}}
+                                <i class="fa fa-long-arrow-alt-right"></i> 
+                            </h4> 
+                            <p>{{services}}</p>
+                            <p>
+                                <span class="inline">
+                                    <i class="fas fa-clock"></i> {{waitTime}} mins waiting time
+                                </span>
+                                <span class="inline">
+                                    <span>&#183;</span> <i class="fas fa-car-alt"></i> {{drive}}-min drive
+                                </span>
+                            </p> 
+                            <p>
+                                <span class="inline {{colorStatus}}">
+                                    <i class="far fa-tired"></i> {{status}}
+                                </span>
+                                <span class="inline">
+                                    <span>&#183;</span> <i class="far fa-clock"></i> {{availability}}
+                                </span>                    
+                            </p>
+                        </div>
+                    </a>   
+                {{/each}}
+            </script>
+        </div>
+
+        <div style="margin-top: 5px;">
+            <script id="item-template" type="text/x-handlebars-template">
+                <a href="template.html?id={{cells.ID}}">
+                    <div class="results-box">
+                        <h4>{{cells.HospitalName}}
+                            <i class="fa fa-long-arrow-alt-right"></i> 
+                        </h4> 
+                        <p>{{cells.Services}}</p>
+                        <p>
+                            <span class="inline">
+                                <i class="fas fa-clock"></i> {{cells.WaitTime}} mins waiting time
+                            </span>
+                            <span class="inline">
+                                <span>&#183;</span> <i class="fas fa-car-alt"></i> {{cells.Drive}}-min drive
+                            </span>
+                        </p> 
+                        <p>
+                            <span class="inline {{colorStatus}}">
+                                <i class="far fa-tired"></i> {{cells.Status}}
+                            </span>
+                            <span class="inline">
+                                <span>&#183;</span> <i class="far fa-clock"></i> {{cells.Availability}}
+                            </span>                    
+                        </p>
+                    </div>
+                </a>            
+            </script>        
+        </div>
 
 
 
@@ -100,7 +131,7 @@
             url: mySpreadsheet,
             query: "select * order by D",            
             rowTemplate: templateHospitalName
-        });      
-    </script>          
+        });           
+    </script>           
 </body>
 </html>
