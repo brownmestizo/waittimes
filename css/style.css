@@ -33,7 +33,7 @@ a, a:active, a:focus, a:hover {
 }
 
 a div.results-box h4 {
-    color: #000;
+    color: #333;
 }
 
 .sidebar {
@@ -72,15 +72,14 @@ a div.results-box h4 {
 .header {
     width: 100%; 
     background-color: #398396; 
-    padding: 10px 15px 15px 15px; 
+    padding: 15px; 
     color: #FFF;
 }
 
 .header i {
     color: #FFF;
     display: inline-block;
-    height: 100%;
-    line-height: 45px;
+    margin-top: 5px;
 }
 
 .header img.logo {
@@ -88,9 +87,13 @@ a div.results-box h4 {
     display: block;
 }
 
-.header p {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.header h4 {
+    margin: 0px;  
+    display: inline-block;  
+}
+
+.header input {
+    margin-top: 8px;
 }
 
 /* List page */
@@ -169,6 +172,16 @@ a div.results-box h4 {
     margin-top: -50px;
     padding-top: 70px;
     padding-bottom: 15px;    
+}
+
+.activity-indicator {
+    margin: 0px auto;
+    margin-top: 15px;
+}
+
+.activity-indicator .col-12 {
+    border: 1px solid #EFEFEF;
+    padding: 10px 10px;
 }
 
 .other-facilities .col-12 h5,

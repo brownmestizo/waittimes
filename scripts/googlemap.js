@@ -73,6 +73,7 @@ function initAutocomplete() {
               address: place.formatted_address,
               website: place.website,
               day: dd-1,
+              tomorrow: dd,
             };
             resolve(x);
         } else {

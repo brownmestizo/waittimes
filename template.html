@@ -31,11 +31,17 @@
 
 <body>
 
+    <div class="sidebar shadow" style="display:none;" id="sidebar">
+        <ul>
+            <li onClick="sidebar_close()">Close</li>
+            <li>Help</li>
+            <li>About this project</li>
+        </ul>      
+    </div>
+            
     <div class="header">
-        <div class="" style="vertical-align: middle;">
-            <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
-            <img class="logo" src="images/logo.png" />
-        </div>
+        <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
+        <h4>Health Service Finder</h4>
     </div>
 
     <div class="container facility-bg">
@@ -114,21 +120,20 @@
             </div>                        
         </div>
 
-        <div class="row" style="margin-top: 20px; margin: 0px auto; margin-top: 10px;">
-            <div class="col-12" style="border: 1px solid #EFEFEF; padding-top: 10px; padding-bottom: 5px;">
+        <div class="row activity-indicator">
+            <div class="col-12">
                 <p class="m-b-negativefive">
                     <span class="float-right"><a href="#" id="refresh">Refresh</a></span>
-                    Activity indicator <i class="fas fa-question-circle"></i>
+                    Activity indicator
                 </p>
-                <small style="margin-top: -5px;">As of 25 February 2019 06:51 am</small>
+                <small class="m-b-negativefive">As of 25 February 2019 06:51 am</small>
                 <hr />
-                <p><span class="float-right extremely-busy"><i class="far fa-tired"></i> Extremely busy</span>Status</p>
+                <p><span class="float-right extremely-busy"> Over 2 hours</span>Approx wait time</p>
                 <hr />
                 <p><span class="float-right">9 patients</span>Patients waiting to be seen</p>
                 <hr />
-                <p><span class="float-right">10 patients</span>Total patients in emergency</p>
+                <p style="line-height: 160%; font-size: 85%;">Figures above are current at the time of page load. You may end up waiting longer if there are people with more urgent needs than you.</p>
             </div>
-            
         </div>
     </div>
 

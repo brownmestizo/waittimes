@@ -34,12 +34,8 @@
     </div>
             
     <div class="header">
-        <div class="" style="vertical-align: middle;">
-            <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
-            <img class="logo" src="images/logo.png" />
-        </div>
-
-        <p>Health Service Finder</p>
+        <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
+        <h4>Health Service Finder</h4>
         <input id="pac-input" class="controls" type="text" placeholder="Enter your location">
     </div>
 
@@ -104,23 +100,26 @@
                         <p>{{cells.Services}}</p>
                         <p>
                             <span class="inline">
-                                <i class="fas fa-clock"></i> {{cells.WaitTime}} mins waiting time
-                            </span>
-                            <span class="inline">
-                                <span>&#183;</span> <i class="fas fa-car-alt"></i> {{cells.Drive}}-min drive
-                            </span>
+                                <i class="fas fa-clock"></i> {{cells.Status}} approx waiting time
+                            </span> <br />
+                            <i class="fas fa-car-alt"></i> {{cells.DriveTime}}-min drive
                         </p> 
                         <p>
-                            <span class="inline {{colorStatus}}">
-                                <i class="far fa-tired"></i> {{cells.Status}}
-                            </span>
                             <span class="inline">
-                                <span>&#183;</span> <i class="far fa-clock"></i> {{cells.Availability}}
+                                <i class="far fa-clock"></i> {{cells.Availability}}
                             </span>                    
                         </p>
                     </div>
                 </a>            
             </script>        
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center p-3">
+                <img src="images/logo.png" />
+            </div>
         </div>
     </div>
 
