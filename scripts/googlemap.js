@@ -56,6 +56,9 @@ function initAutocomplete() {
   var tdate = new Date();
   var dd = tdate.getDay();
 
+  function arrayContains(needle, arrhaystack) {
+      return (arrhaystack.indexOf(needle) > -1);
+  }
  
   function findDetail(varPlaceID) {
     return new Promise(function(resolve,reject) {
@@ -66,6 +69,7 @@ function initAutocomplete() {
               contact: place.international_phone_number,
               openNow: place.opening_hours['open_now'],
               openingHours: place.opening_hours['weekday_text'],
+              closedToday: (place.opening_hours['weekday_text'][dd-1]).indexOf("Closed"),
               address: place.formatted_address,
               website: place.website,
               day: dd-1,
@@ -148,7 +152,6 @@ function initAutocomplete() {
       });
 
       markers.push(marker);
-
       bounds.extend(place.geometry.location);
 
       if (place.geometry.viewport) {
@@ -205,6 +208,3 @@ function initAutocomplete() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
-
-

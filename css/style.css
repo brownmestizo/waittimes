@@ -80,6 +80,7 @@ a div.results-box h4 {
     color: #FFF;
     display: inline-block;
     height: 100%;
+    line-height: 45px;
 }
 
 .header img.logo {
@@ -90,6 +91,11 @@ a div.results-box h4 {
 .header p {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+/* List page */
+#results a:not(:first-of-type) .results-box {
+    margin-top: 5px;
 }
 
 .results-box {
@@ -106,20 +112,51 @@ a div.results-box h4 {
     margin-bottom: 0px;
 }
 
+/* Margins */
 
 .m-b-none {
     margin-bottom: 0px;
+}
+
+.m-b-small {
+    margin-bottom: 5px;
 }
 
 .m-b-negativefive {
     margin-bottom: -5px;
 }
 
-#results a:not(:first-of-type) .results-box {
-    margin-top: 5px;
+
+/* Facility page */
+
+.container {
+    margin-bottom: 5px;
 }
 
+.btn-primary {
+    background: #398396;
+}
 
+.facility-bg {
+    background-image: url('../images/rbwh.jpg');
+    background-size: 160%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.facility-bg a {
+    color: #FFF;
+}
+
+.facility-bg .back {
+    margin-top: 15px;
+    margin-left: 0px;
+}
+
+.facility-bg .card {
+    margin: 0px auto; 
+    margin-top: 30px;
+}
 
 .badge-secondary {
     font-size: 95%;
@@ -128,22 +165,15 @@ a div.results-box h4 {
     padding: 0.5em 0.5em !important;
 }
 
+.below-card {
+    margin-top: -50px;
+    padding-top: 70px;
+    padding-bottom: 15px;    
+}
+
 .other-facilities .col-12 h5,
-.hospital-details .col-12 p {
+.facility-details .col-12 p {
     margin: 8px 0;
-}
-
-.extreme,
-.extremely-busy {
-    color: red;
-}
-
-.normal {
-    color: green;
-}
-
-.busy {
-    color: orange;
 }
 
 .other-facilities .card .card-body {
@@ -169,13 +199,6 @@ a div.results-box h4 {
     -webkit-overflow-scrolling: touch;
 }
 
-.hospital-bg {
-    background-image: url('../images/rbwh.jpg');
-    background-size: 160%;
-    background-position: bottom;
-    background-repeat: no-repeat;
-}
-
-.hospital-bg a {
-    color: #FFF;
+.popular-times {
+    padding-bottom: 15px;
 }

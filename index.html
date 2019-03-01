@@ -19,11 +19,8 @@
     <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>   
-    <script type="text/javascript" src="scripts/scripts2.js"></script>
+    <script type="text/javascript" src="scripts/googlemap.js"></script>
     <script type="text/javascript" src="scripts/sidebar.js"></script>    
-
-    <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
-
 </head>
 
 <body>
@@ -38,11 +35,11 @@
             
     <div class="header">
         <div class="" style="vertical-align: middle;">
-            <i class="fas fa-bars float-right" onclick="sidebar_open()" style="line-height:45px;"></i>
+            <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
             <img class="logo" src="images/logo.png" />
         </div>
 
-        <p>Emergency Department Waiting Times</p>
+        <p>Health Service Finder</p>
         <input id="pac-input" class="controls" type="text" placeholder="Enter your location">
     </div>
 
@@ -65,19 +62,34 @@
             <script id="ed-template" type="text/x-handlebars-template">
                 {{#each this}}
                     <a href="template.html?id=1">
-                        <div class="results-box">
+                        <div class="results-box shadow-sm">
                             <h4 class="m-b-none">{{name}}</h4> 
                             <p>{{address}}</p>
                             {{#if openNow}}
-                                <p>Open
+                                <p>Open now
                                 {{#with (lookup openingHours day) as |day|}}
                                     {{this}}
                                 {{/with}}
                                 </p>
                             {{/if}}
                             {{#unless openNow}}
-                                <p>Closed today</p>
+                                <p>Closed  
+                                
+                                {{#if closedToday}}
+                                    right now.
+                                    <br />
+                                    Opens at
+                                    {{#with (lookup openingHours day) as |day|}}
+                                        {{this}}
+                                    {{/with}}               
+                                {{/if}}      
+
+                                {{#unless closedToday}}
+                                    today
+                                {{/unless}}                                           
+                                </p>
                             {{/unless}}
+
                         </div>
                     </a>   
                 {{/each}}
@@ -87,7 +99,7 @@
         <div style="margin-top: 5px;">
             <script id="item-template" type="text/x-handlebars-template">
                 <a href="template.html?id={{cells.ID}}">
-                    <div class="results-box">
+                    <div class="results-box shadow-sm">
                         <h4>{{cells.HospitalName}}</h4> 
                         <p>{{cells.Services}}</p>
                         <p>
@@ -110,10 +122,9 @@
                 </a>            
             </script>        
         </div>
-
-
-
     </div>
+
+
     <script type="text/javascript">
         var templateHospitalName = Handlebars.compile($('#item-template').html());
         var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';

@@ -17,80 +17,76 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
     <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 
-    <script type="text/javascript" src="scripts/scripts2.js"></script>
-    <script type="text/javascript" src="scripts/scripts3.js"></script>    
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>   
     <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="scripts/general.js"></script>
-    <script type="text/javascript" src="scripts/scripts3.js"></script>
+    <script type="text/javascript" src="scripts/functions.js"></script>
+    <script type="text/javascript" src="scripts/charts.js"></script>
 </head>
 
 
 <body>
 
-        <div class="header" style="width: 100%; background-color: #398396; padding: 10px; color: #FFF;">
-            <img src="images/logo.png" style="width: 70%; margin-bottom: 5px;" />
+    <div class="header">
+        <div class="" style="vertical-align: middle;">
+            <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
+            <img class="logo" src="images/logo.png" />
         </div>
+    </div>
 
-        <div class="container hospital-bg">
-            <div class="row">
-                <div class="col-12">
-                    <a href="index.html">
-                        <h4 style="margin: 0px; margin-top: 20px;">
-                            <i class="fas fa-arrow-left"></i>
-                        </h4>
-                    </a>
-                </div>
+    <div class="container facility-bg">
+        <div class="row">
+            <div class="col-12">
+                <a href="index.html">
+                    <h4 class="back"><i class="fas fa-arrow-left"></i></h4>
+                </a>
             </div>
-
-            <div class="card shadow bg-white rounded" style="width: 95%; margin: 0px auto; margin-top: 30px;">
-                <div class="card-body">
-                    
-                    <div id="hospitalPage">
-                        <script id="hospitalDetails" type="text/x-handlebars-template">
-                            <h4>{{cells.HospitalName}}</h4>
-                            <p>
-                                <span class="inline">
-                                    <i class="fas fa-clock"></i> {{cells.WaitTime}} mins wait time
-                                </span>
-                                <span class="inline">
-                                    <span>&#183;</span> <i class="fas fa-car-alt"></i> {{cells.Drive}}-min drive
-                                </span>
-                            </p> 
-                        </script>
-                    </div>
-                    <p>
-                        <span class="inline extreme">
-                            <i class="far fa-tired"></i> Extremely busy
-                        </span>
-                        <span class="inline">
-                            <span>&#183;</span> <i class="far fa-clock"></i> Open 24 hours
-                        </span>                    
-                    </p>      
-                
-                    <p style="margin-top: 5px;">                 
-                        <span class="float-right">
-
-                            <a data-toggle="modal" data-target="#exampleModal">
-                            <i class="fas fa-question-circle"></i> 
-                            </a>
-                                                         
-                        </span>
-                        <span class="badge badge-secondary">Adult</span>    
-                        <span class="badge badge-secondary">Maternity Health</span>        
-                    </p>
-                </div>
-            </div>              
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="card shadow bg-white rounded">
+            <div class="card-body">                
+                <div id="hospitalPage">
+                    <script id="hospitalDetails" type="text/x-handlebars-template">
+                        <h4>{{cells.HospitalName}}</h4>
+                        <p>
+                            <span class="inline">
+                                <i class="fas fa-clock"></i> {{cells.WaitTime}} mins wait time
+                            </span>
+                            <span class="inline">
+                                <span>&#183;</span> <i class="fas fa-car-alt"></i> {{cells.Drive}}-min drive
+                            </span>
+                        </p> 
+                    </script>
+                </div>
+                <p>
+                    <span class="inline extreme">
+                        <i class="far fa-tired"></i> Extremely busy
+                    </span>
+                    <span class="inline">
+                        <span>&#183;</span> <i class="far fa-clock"></i> Open 24 hours
+                    </span>                    
+                </p>      
+            
+                <p style="margin-top: 5px;">                 
+                    <span class="float-right">
+
+                        <a data-toggle="modal" data-target="#exampleModal">
+                        <i class="fas fa-question-circle"></i> 
+                        </a>
+                                                        
+                    </span>
+                    <span class="badge badge-secondary">Adult</span>    
+                    <span class="badge badge-secondary">Maternity Health</span>        
+                </p>
+            </div>
+        </div>              
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -105,119 +101,119 @@
             </div>
             </div>
         </div>
-        </div>
-      
+    </div>
 
-        <div class="container bg-white" style="margin-top: -50px; margin-bottom: 5px; padding-top: 70px; padding-bottom: 20px;">
-                <div class="row">
-                    <div class="col-6">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Royal+Brisbane+and+Women's+Hospital+Emergency+Room" class="btn btn-primary btn-block">
-                            <i class="fas fa-directions"></i> Get directions</a>
-                    </div>
-                    <div class="col-6">
-                        <a href="#" class="btn btn-primary btn-block"><i class="fas fa-share"></i> Share</a>                           
-                    </div>                        
-                </div>
-
-                <div class="row" style="margin-top: 20px; margin: 0px auto; margin-top: 10px;">
-                    <div class="col-12" style="border: 1px solid #EFEFEF; padding-top: 10px; padding-bottom: 5px;">
-                        <p class="m-b-negativefive">
-                            <span class="float-right"><a href="#" id="refresh">Refresh</a></span>
-                            Activity indicator <i class="fas fa-question-circle"></i>
-                        </p>
-                        <small style="margin-top: -5px;">As of 25 February 2019 06:51 am</small>
-                        <hr />
-                        <p><span class="float-right extremely-busy"><i class="far fa-tired"></i> Extremely busy</span>Status</p>
-                        <hr />
-                        <p><span class="float-right">9 patients</span>Patients waiting to be seen</p>
-                        <hr />
-                        <p><span class="float-right">10 patients</span>Total patients in emergency</p>
-                    </div>
-                    
-                </div>
-        </div>
-
-        <div class="container hospital-details" style="margin-bottom: 5px;">
-            <div class="row">
-                <div class="col-12 bg-white" style="margin-bottom: 1px;">
-                    <p>
-                        <a href="https://www.google.com/maps/dir/?api=1&parameters"><span class="float-right"><small>Directions</small></span></a>
-                        <i class="fas fa-map-marker-alt"></i> Butterfield Street, Herston 4029
-                    </p>
-                </div>
-                <div class="col-12 bg-white" style="margin-bottom: 1px;">
-                    <p><i class="far fa-clock"></i> Open 24 hours</p>
-                </div>       
-                <div class="col-12 bg-white" style="margin-bottom: 1px;">
-                    <p>
-                        <span class="float-right">
-                            <a href="tel:36466500"><small>Call</small></a>
-                        </span>
-                        <i class="fas fa-phone"></i> (07) 3646 6500
-                    </p>
-                </div>                              
+    <div class="container bg-white below-card">
+        <div class="row">
+            <div class="col-6">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Royal+Brisbane+and+Women's+Hospital+Emergency+Room" class="btn btn-primary btn-block">
+                    <i class="fas fa-directions"></i> Get directions</a>
             </div>
+            <div class="col-6">
+                <a href="#" class="btn btn-primary btn-block"><i class="fas fa-share"></i> Share</a>                           
+            </div>                        
         </div>
 
-        <div class="container bg-white other-facilities">
-            <div class="row">
-                <div class="col-12" style="padding: 10px 15px 5px 15px;">
-                    <span class="float-right"><h5><i class="fas fa-question-circle"></i></h5></span>
-                    <h5>Other nearby healthcare facilities</h5>
-                </div>
-                <div class="col-12">                                       
-                </div>
+        <div class="row" style="margin-top: 20px; margin: 0px auto; margin-top: 10px;">
+            <div class="col-12" style="border: 1px solid #EFEFEF; padding-top: 10px; padding-bottom: 5px;">
+                <p class="m-b-negativefive">
+                    <span class="float-right"><a href="#" id="refresh">Refresh</a></span>
+                    Activity indicator <i class="fas fa-question-circle"></i>
+                </p>
+                <small style="margin-top: -5px;">As of 25 February 2019 06:51 am</small>
+                <hr />
+                <p><span class="float-right extremely-busy"><i class="far fa-tired"></i> Extremely busy</span>Status</p>
+                <hr />
+                <p><span class="float-right">9 patients</span>Patients waiting to be seen</p>
+                <hr />
+                <p><span class="float-right">10 patients</span>Total patients in emergency</p>
             </div>
+            
         </div>
-        
-        <div class="scrolling-wrapper" style="margin-bottom: 5px;">
+    </div>
 
-            <div class="mini-card shadow-sm bg-white">
-                <p><strong>The Prince Charles Hospital</strong></p>
-                <p>Adult, Paediatric, Mental Health</p>
-                <p>60 minutes waiting time</p>
-                <p>Open</p>
+    <div class="container facility-details" style="margin-bottom: 5px;">
+        <div class="row">
+            <div class="col-12 bg-white" style="margin-bottom: 1px;">
+                <p>
+                    <a href="https://www.google.com/maps/dir/?api=1&parameters"><span class="float-right"><small>Directions</small></span></a>
+                    <i class="fas fa-map-marker-alt"></i> Butterfield Street, Herston 4029
+                </p>
             </div>
-
-            <div class="mini-card shadow-sm bg-white">
-                <p><strong>Caboolture Hospital</strong></p>
-                <p>Adult, Paediatric, Mental Health</p>
-                <p>60 minutes waiting time</p>
-                <p>Open</p>
-            </div>            
-
-            <div class="mini-card shadow-sm bg-white">
-                <p><strong>Kilcoy Hospital</strong></p>
-                <p>Adult, Paediatric, Mental Health</p>
-                <p>60 minutes waiting time</p>
-                <p>Open</p>
+            <div class="col-12 bg-white" style="margin-bottom: 1px;">
+                <p><i class="far fa-clock"></i> Open 24 hours</p>
             </div>       
-
+            <div class="col-12 bg-white" style="margin-bottom: 1px;">
+                <p>
+                    <span class="float-right">
+                        <a href="tel:36466500"><small>Call</small></a>
+                    </span>
+                    <i class="fas fa-phone"></i> (07) 3646 6500
+                </p>
+            </div>                              
         </div>
-        
-        <div class="container bg-white popular-times" style="padding-bottom: 15px;">
-            <div class="row">
-                <div class="col-12" style="padding: 10px 15px 5px 15px;">
-                    <span class="float-right"><h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">
-                        <i class="fas fa-question-circle"></i></h5></span>
-                        <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">Popular times: Tuesday</h5>
-                        <small>Tap hours to see average waiting times</small>
-                </div>
-                <div class="col-12"> 
-                    <div class="owl-carousel owl-theme">
-                        <div class="item" id="chartContainer1" style="height: 170px; width: 100%;"></div>      
-                        <div class="item" id="chartContainer2" style="height: 170px; width: 100%;"></div>
-                        <div class="item" id="chartContainer3" style="height: 170px; width: 100%;"></div>      
-                        <div class="item" id="chartContainer4" style="height: 170px; width: 100%;"></div>
-                        <div class="item" id="chartContainer5" style="height: 170px; width: 100%;"></div>      
-                        <div class="item" id="chartContainer6" style="height: 170px; width: 100%;"></div>
-                        <div class="item" id="chartContainer7" style="height: 170px; width: 100%;"></div>
-                    </div>
-                </div>                                   
+    </div>
+
+    <div class="container bg-white other-facilities">
+        <div class="row">
+            <div class="col-12" style="padding: 10px 15px 5px 15px;">
+                <span class="float-right"><h5><i class="fas fa-question-circle"></i></h5></span>
+                <h5>Other nearby healthcare facilities</h5>
+            </div>
+            <div class="col-12">                                       
             </div>
         </div>
-
+    </div>
     
+    <div class="scrolling-wrapper m-b-small">
+
+        <div class="mini-card shadow-sm bg-white">
+            <p><strong>The Prince Charles Hospital</strong></p>
+            <p>Adult, Paediatric, Mental Health</p>
+            <p>60 minutes waiting time</p>
+            <p>Open</p>
+        </div>
+
+        <div class="mini-card shadow-sm bg-white">
+            <p><strong>Caboolture Hospital</strong></p>
+            <p>Adult, Paediatric, Mental Health</p>
+            <p>60 minutes waiting time</p>
+            <p>Open</p>
+        </div>            
+
+        <div class="mini-card shadow-sm bg-white">
+            <p><strong>Kilcoy Hospital</strong></p>
+            <p>Adult, Paediatric, Mental Health</p>
+            <p>60 minutes waiting time</p>
+            <p>Open</p>
+        </div>       
+
+    </div>
+    
+    <div class="container bg-white popular-times">
+        <div class="row">
+            <div class="col-12" style="padding: 10px 15px 5px 15px;">
+                <span class="float-right">
+                <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">
+                <i class="fas fa-question-circle"></i></h5></span>
+                <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">
+                    Popular times: Tuesday</h5>
+                <small>Tap hours to see average waiting times</small>
+            </div>
+            <div class="col-12"> 
+                <div class="owl-carousel owl-theme">
+                    <div class="item" id="chartContainer1" style="height: 170px; width: 100%;"></div>      
+                    <div class="item" id="chartContainer2" style="height: 170px; width: 100%;"></div>
+                    <div class="item" id="chartContainer3" style="height: 170px; width: 100%;"></div>      
+                    <div class="item" id="chartContainer4" style="height: 170px; width: 100%;"></div>
+                    <div class="item" id="chartContainer5" style="height: 170px; width: 100%;"></div>      
+                    <div class="item" id="chartContainer6" style="height: 170px; width: 100%;"></div>
+                    <div class="item" id="chartContainer7" style="height: 170px; width: 100%;"></div>
+                </div>
+            </div>                                   
+        </div>
+    </div>
+
     <script type="text/javascript">
         var facilityID = getUrlParameter('id');
         var templateHospitalName = Handlebars.compile($('#hospitalDetails').html());
@@ -227,7 +223,6 @@
             query: "select A,B,C,D,E,F,G,H,I where A = " + facilityID,
             rowTemplate: templateHospitalName
         });            
-
     </script>           
 </body>
 </html>

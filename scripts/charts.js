@@ -1,34 +1,3 @@
-function sidebar_open() {
-    document.getElementById("sidebar").style.display = "block";
-}
-
-function sidebar_close() {
-    document.getElementById("sidebar").style.display = "none";
-}    
-
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-};
-
-$(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
-        center: true,
-        items: 1,
-    });
-});
-
-
 window.onload = function () {
     
     $('#refresh').click(function () {
@@ -130,4 +99,3 @@ window.onload = function () {
     $("#chartContainer6").CanvasJSChart(options2);    
     $("#chartContainer7").CanvasJSChart(options1);        
 }
-    
