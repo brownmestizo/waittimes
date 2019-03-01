@@ -136,6 +136,10 @@ a div.results-box h4 {
     margin-bottom: 5px;
 }
 
+.container .header-row {
+    padding: 10px 15px 5px 15px;
+}
+
 .btn-primary {
     background: #398396;
 }
@@ -145,6 +149,12 @@ a div.results-box h4 {
     background-size: 160%;
     background-position: bottom;
     background-repeat: no-repeat;
+}
+
+.caption {
+    line-height: 160%;
+    font-size: 85%;
+    color: #AAA;
 }
 
 .facility-bg a {
@@ -189,6 +199,14 @@ a div.results-box h4 {
     margin: 8px 0;
 }
 
+.facility-details .col-12.bg-white {
+    margin-bottom: 1px;
+}
+
+.other-facilities {
+    margin-bottom: 0px;
+}
+
 .other-facilities .card .card-body {
     padding: .5rem;
     font-size: 90%;
@@ -205,7 +223,7 @@ a div.results-box h4 {
 
 .scrolling-wrapper {
     background-color: #FFF;
-    padding: 0px 15px 15px 15px;
+    padding: 5px 15px 15px 15px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;    

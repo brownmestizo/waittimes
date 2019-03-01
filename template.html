@@ -52,61 +52,35 @@
                 </a>
             </div>
         </div>
-
+        
         <div class="card shadow bg-white rounded">
-            <div class="card-body">                
-                <div id="hospitalPage">
-                    <script id="hospitalDetails" type="text/x-handlebars-template">
-                        <h4>{{cells.HospitalName}}</h4>
-                        <p>
-                            <span class="inline">
-                                <i class="fas fa-clock"></i> {{cells.WaitTime}} mins wait time
-                            </span>
-                            <span class="inline">
-                                <span>&#183;</span> <i class="fas fa-car-alt"></i> {{cells.Drive}}-min drive
-                            </span>
-                        </p> 
-                    </script>
-                </div>
-                <p>
-                    <span class="inline extreme">
-                        <i class="far fa-tired"></i> Extremely busy
-                    </span>
-                    <span class="inline">
-                        <span>&#183;</span> <i class="far fa-clock"></i> Open 24 hours
-                    </span>                    
-                </p>      
-            
-                <p style="margin-top: 5px;">                 
-                    <span class="float-right">
+            <div class="card-body" id="hospitalPage">      
+                <script id="hospitalDetails" type="text/x-handlebars-template">          
+                    <h4>{{cells.HospitalName}}</h4>
+                    <p>
+                        <span class="inline">
+                            <i class="fas fa-clock"></i> {{cells.Status}} approx wait time
+                        </span>
+                    </p>
+                    <p>
+                        <span class="inline">
+                            <i class="fas fa-car-alt"></i> {{cells.DriveTime}}-min drive from Brisbane City
+                        </span>
+                    </p> 
+                    <p>
+                        <span class="inline">
+                            <i class="far fa-clock"></i> Open 24 hours
+                        </span>                    
+                    </p>      
+                    <hr />
+                    <p style="margin-top: 10px;">                                   
+                        <span class="badge badge-secondary">Adult</span>    
+                        <span class="badge badge-secondary">Maternity</span>        
+                    </p>
+                </script>           
+            </div>                 
+        </div> 
 
-                        <a data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-question-circle"></i> 
-                        </a>
-                                                        
-                    </span>
-                    <span class="badge badge-secondary">Adult</span>    
-                    <span class="badge badge-secondary">Maternity Health</span>        
-                </p>
-            </div>
-        </div>              
-    </div>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Healthcare services</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Adult - includes blah blah</p>
-                <p>Maternity Health - includes blah blah</p>
-            </div>
-            </div>
-        </div>
     </div>
 
     <div class="container bg-white below-card">
@@ -132,23 +106,24 @@
                 <hr />
                 <p><span class="float-right">9 patients</span>Patients waiting to be seen</p>
                 <hr />
-                <p style="line-height: 160%; font-size: 85%;">Figures above are current at the time of page load. You may end up waiting longer if there are people with more urgent needs than you.</p>
+                <p class="caption">Figures above are current at the time of page load. You may end up waiting longer if there are people with more urgent needs than you.</p>
             </div>
         </div>
     </div>
 
-    <div class="container facility-details" style="margin-bottom: 5px;">
+    <div class="container facility-details">
         <div class="row">
-            <div class="col-12 bg-white" style="margin-bottom: 1px;">
+            <div class="col-12 bg-white">
                 <p>
-                    <a href="https://www.google.com/maps/dir/?api=1&parameters"><span class="float-right"><small>Directions</small></span></a>
+                    <a href="https://www.google.com/maps/dir/?api=1&parameters">
+                    <span class="float-right"><small>Directions</small></span></a>
                     <i class="fas fa-map-marker-alt"></i> Butterfield Street, Herston 4029
                 </p>
             </div>
-            <div class="col-12 bg-white" style="margin-bottom: 1px;">
+            <div class="col-12 bg-white">
                 <p><i class="far fa-clock"></i> Open 24 hours</p>
             </div>       
-            <div class="col-12 bg-white" style="margin-bottom: 1px;">
+            <div class="col-12 bg-white">
                 <p>
                     <span class="float-right">
                         <a href="tel:36466500"><small>Call</small></a>
@@ -161,11 +136,9 @@
 
     <div class="container bg-white other-facilities">
         <div class="row">
-            <div class="col-12" style="padding: 10px 15px 5px 15px;">
+            <div class="col-12 header-row">
                 <span class="float-right"><h5><i class="fas fa-question-circle"></i></h5></span>
                 <h5>Other nearby healthcare facilities</h5>
-            </div>
-            <div class="col-12">                                       
             </div>
         </div>
     </div>
@@ -197,12 +170,15 @@
     
     <div class="container bg-white popular-times">
         <div class="row">
-            <div class="col-12" style="padding: 10px 15px 5px 15px;">
+            <div class="col-12 header-row">
                 <span class="float-right">
+                    <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">
+                        <i class="fas fa-question-circle"></i>
+                    </h5>
+                </span>
                 <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">
-                <i class="fas fa-question-circle"></i></h5></span>
-                <h5 style="margin: 0px; margin-bottom: -5px; margin-top: 5px;">
-                    Popular times: Tuesday</h5>
+                    Popular times: Tuesday
+                </h5>
                 <small>Tap hours to see average waiting times</small>
             </div>
             <div class="col-12"> 
@@ -225,7 +201,7 @@
         var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
         $("#hospitalPage").sheetrock({
             url: mySpreadsheet,
-            query: "select A,B,C,D,E,F,G,H,I where A = " + facilityID,
+            query: "select * where A = " + facilityID,
             rowTemplate: templateHospitalName
         });            
     </script>           
