@@ -82,6 +82,12 @@ a div.results-box h4 {
     margin-top: 5px;
 }
 
+.header a,
+.header a:active,
+.header a:focus {
+    color: #FFF;
+}
+
 .header img.logo {
     width: 70%;   
     display: block;
@@ -168,7 +174,7 @@ a div.results-box h4 {
 
 .facility-bg .card {
     margin: 0px auto; 
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .badge-secondary {

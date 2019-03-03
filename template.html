@@ -41,14 +41,14 @@
             
     <div class="header">
         <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
-        <h4>Health Service Finder</h4>
+        <a href="index.html"><h4>Health Service Finder</h4></a>
     </div>
 
     <div class="container facility-bg">
         <div class="row">
             <div class="col-12">
                 <a href="index.html">
-                    <h4 class="back"><i class="fas fa-arrow-left"></i></h4>
+                    <p class="back"><i class="fas fa-arrow-left"></i> Back</p>
                 </a>
             </div>
         </div>
@@ -73,9 +73,8 @@
                         </span>                    
                     </p>      
                     <hr />
-                    <p style="margin-top: 10px;">                                   
-                        <span class="badge badge-secondary">Adult</span>    
-                        <span class="badge badge-secondary">Maternity</span>        
+                    <p style="margin-top: 10px;">  
+                        {{{splitTitle cells.Services}}} 
                     </p>
                 </script>           
             </div>                 
@@ -204,6 +203,18 @@
     </div>
 
     <script type="text/javascript">
+
+        Handlebars.registerHelper('splitTitle', function(title) {
+            var t = title.split(",");
+            var output = '';
+
+            for (i = 0; i < t.length; i++) { 
+                output += '<span class="badge badge-secondary">' + t[i] + '</span> ';
+            }
+
+            return output;
+        });
+
         var facilityID = getUrlParameter('id');
         var templateHospitalName = Handlebars.compile($('#hospitalDetails').html());
         var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
@@ -212,6 +223,8 @@
             query: "select * where A = " + facilityID,
             rowTemplate: templateHospitalName
         });            
+
+        console.log(mySpreadsheet);
     </script>           
 </body>
 </html>
