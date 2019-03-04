@@ -190,6 +190,16 @@ a div.results-box h4 {
     padding-bottom: 15px;    
 }
 
+#shareModal .modal-body {
+    padding-top: 0.5rem;
+}
+
+#shareModal .modal-body p a {
+    display: block;
+    padding: 8px 0;
+    width: 100%;
+}
+
 .activity-indicator {
     margin: 0px auto;
     margin-top: 15px;
