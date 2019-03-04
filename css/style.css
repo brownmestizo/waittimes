@@ -65,6 +65,14 @@ a div.results-box h4 {
     border-bottom: 1px solid #224d58;
 }
 
+.error {
+    color: #dc5556 !important;
+}
+
+.ok {
+    color: #009f96 !important;
+}
+
 #map {
     height: 40%;
 }
@@ -142,6 +150,10 @@ a div.results-box h4 {
     margin-bottom: 5px;
 }
 
+.container-facility-card {
+    margin-top: -156px;
+}
+
 .container .header-row {
     padding: 10px 15px 5px 15px;
 }
@@ -151,10 +163,20 @@ a div.results-box h4 {
 }
 
 .facility-bg {
-    background-image: url('../images/rbwh.jpg');
-    background-size: 160%;
-    background-position: bottom;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
+    height: 200px;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .caption {
@@ -244,6 +266,14 @@ a div.results-box h4 {
     overflow-y: hidden;
     white-space: nowrap;    
     -webkit-overflow-scrolling: touch;
+}
+
+.scrolling-wrapper a div {
+    cursor: grab;
+}
+
+.scrolling-wrapper a div p {
+    color: #333;
 }
 
 .popular-times {

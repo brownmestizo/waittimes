@@ -35,24 +35,6 @@ function initAutocomplete() {
   var edtemplate = Handlebars.compile($('#ed-template').html());
   var facilityDetails = [];
 
-  /*
-  function fetchGooglePlaceDetails(varPlaceID) {
-    service.getDetails({
-      placeId: varPlaceID  
-      }, function(place, status) {
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
-            var x = {
-              name: place.name, 
-              rating: place.rating,
-              openNow: place.opening_hours['open_now'],
-              openingHours: place.opening_hours['weekday_text'],
-            };
-            //console.log(x);
-          }
-    }); 
-  }
-  */
-
   var tdate = new Date();
   var dd = tdate.getDay();
 

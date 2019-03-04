@@ -44,9 +44,14 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete&fields=name,rating,formatted_address,opening_hours" async defer></script>
 
     <div id="results">
-
-
-       
+        <div class="container">
+            <div class="row">
+                <div class="col-12" style="padding: 12px 22px 5px 22px">
+                    <p style="line-height: 1.2rem;">Showing 1-15 of 15 results.<br />Sorted by distance to your location.</p>
+                </div>
+            </div>
+        </div>
+        
         <!--
         <div id="items">
             <img src="images/spinner.gif" class="clearfix" style="width: 25%; margin: 0px auto; display: block;" />
@@ -54,6 +59,8 @@
         </div>
         -->
 
+        <!-- Template for GPs -->
+        <!-- Data extracted from Google Places API -->
         <div id="eds">
             <script id="ed-template" type="text/x-handlebars-template">
                 {{#each this}}
@@ -61,18 +68,19 @@
                         <div class="results-box shadow-sm">
                             <h4 class="m-b-none">{{name}}</h4> 
                             <p>{{address}}</p>
+                            <p><i class="fas fa-file-invoice-dollar"></i> Bulk billing only</p>
                             {{#if openNow}}
-                                <p>Open now
+                                <p class="ok">Open now
                                 {{#with (lookup openingHours day) as |day|}}
                                     {{this}}
                                 {{/with}}
                                 </p>
                             {{/if}}
                             {{#unless openNow}}
-                                <p>Closed  
+                                <p><span class="error">Closed  
                                 
                                 {{#if closedToday}}
-                                    right now.
+                                    right now.</span>
                                     <br />
                                     Opens at
                                     {{#with (lookup openingHours day) as |day|}}
@@ -81,7 +89,7 @@
                                 {{/if}}      
 
                                 {{#unless closedToday}}
-                                    today
+                                    today</span>
                                 {{/unless}}                                           
                                 </p>
                             {{/unless}}
@@ -94,7 +102,7 @@
 
         <div style="margin-top: 5px;">
             <script id="item-template" type="text/x-handlebars-template">
-                <a href="template.html?id={{cells.ID}}">
+                <a href="template.html?id={{cells.PlacesID}}">
                     <div class="results-box shadow-sm">
                         <h4>{{cells.HospitalName}}</h4> 
                         <p>{{cells.Services}}</p>
@@ -113,6 +121,7 @@
                 </a>            
             </script>        
         </div>
+
     </div>
 
     <div class="container">
@@ -129,7 +138,7 @@
         var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
         $("#results").sheetrock({
             url: mySpreadsheet,
-            query: "select * order by D",            
+            query: "select *",            
             rowTemplate: templateHospitalName
         });           
     </script>           

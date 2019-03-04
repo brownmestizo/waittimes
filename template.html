@@ -44,41 +44,57 @@
         <a href="index.html"><h4>Health Service Finder</h4></a>
     </div>
 
-    <div class="container facility-bg">
+    <div id="map-helper"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initLoadDetails&fields=name,rating,formatted_address,opening_hours" async defer></script>    
+
+
+    <div id="eds2">
+        <script id="ed2-template" type="text/x-handlebars-template">
+            <div class="container facility-bg" style="background-image: url({{photoReference}});">
+                <div class="overlay"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="index.html">
+                            <p class="back"><i class="fas fa-arrow-left"></i> Back</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </script>
+    </div>
+
+    <div class="container container-facility-card">
         <div class="row">
             <div class="col-12">
-                <a href="index.html">
-                    <p class="back"><i class="fas fa-arrow-left"></i> Back</p>
-                </a>
+                <div class="card shadow bg-white rounded">
+                    <div class="card-body" id="hospitalPage">      
+                        <script id="hospitalDetails" type="text/x-handlebars-template">          
+                            <h4>{{cells.HospitalName}}</h4>
+                            <p>
+                                <span class="inline">
+                                    <i class="fas fa-clock"></i> {{cells.Status}} approx wait time
+                                </span>
+                            </p>
+                            <p>
+                                <span class="inline">
+                                    <i class="fas fa-car-alt"></i> {{cells.DriveTime}}-min drive from Brisbane City
+                                </span>
+                            </p> 
+                            <p>
+                                <span class="inline">
+                                    <i class="far fa-clock"></i> Open 24 hours
+                                </span>                    
+                            </p>      
+                            <hr />
+                            <p style="margin-top: 10px;">  
+                                {{{splitTitle cells.Services}}} 
+                            </p>
+                        </script>           
+                    </div>                 
+                </div>
             </div>
         </div>
-        
-        <div class="card shadow bg-white rounded">
-            <div class="card-body" id="hospitalPage">      
-                <script id="hospitalDetails" type="text/x-handlebars-template">          
-                    <h4>{{cells.HospitalName}}</h4>
-                    <p>
-                        <span class="inline">
-                            <i class="fas fa-clock"></i> {{cells.Status}} approx wait time
-                        </span>
-                    </p>
-                    <p>
-                        <span class="inline">
-                            <i class="fas fa-car-alt"></i> {{cells.DriveTime}}-min drive from Brisbane City
-                        </span>
-                    </p> 
-                    <p>
-                        <span class="inline">
-                            <i class="far fa-clock"></i> Open 24 hours
-                        </span>                    
-                    </p>      
-                    <hr />
-                    <p style="margin-top: 10px;">  
-                        {{{splitTitle cells.Services}}} 
-                    </p>
-                </script>           
-            </div>                 
-        </div> 
     </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="shareModal">
@@ -139,7 +155,7 @@
 
           </div>
         </div>
-      </div>    
+    </div>    
 
     <div class="container bg-white below-card">
         <div class="row">
@@ -152,44 +168,58 @@
             </div>                        
         </div>
 
-        <div class="row activity-indicator">
-            <div class="col-12">
-                <p class="m-b-negativefive">
-                    <span class="float-right"><a href="#" id="refresh">Refresh</a></span>
-                    Activity indicator
-                </p>
-                <small class="m-b-negativefive">As of 25 February 2019 06:51 am</small>
-                <hr />
-                <p><span class="float-right extremely-busy"> Over 2 hours</span>Approx wait time</p>
-                <hr />
-                <p><span class="float-right">9 patients</span>Patients waiting to be seen</p>
-                <hr />
-                <p class="caption">Figures above are current at the time of page load. You may end up waiting longer if there are people with more urgent needs than you.</p>
-            </div>
+        <div class="row activity-indicator" id="hospitalPage2">
+            <script id="hospitalDetails2" type="text/x-handlebars-template">          
+                <div class="col-12">
+                    <p class="m-b-negativefive">
+                        <span class="float-right"><a href="#" id="refresh">Refresh</a></span>
+                        Activity indicator
+                    </p>
+                    <small class="m-b-negativefive">As of 25 February 2019 06:51 am</small>
+                    
+                    <hr />
+                    <p>
+                        <span class="float-right">{{cells.Status}}</span>Approx wait time
+                    </p>
+                    <hr />
+                    <p>
+                        <span class="float-right">{{cells.PatientsWaiting}} patients</span>Patients waiting to be seen
+                    </p>
+                    <hr />
+                    <p class="caption">
+                        Figures above are current at the time of page load. You may end up waiting longer if there are people with more urgent needs than you.
+                    </p>
+                </div>
+            </script>
         </div>
+
     </div>
 
-    <div class="container facility-details">
-        <div class="row">
-            <div class="col-12 bg-white">
-                <p>
-                    <a href="https://www.google.com/maps/dir/?api=1&parameters">
-                    <span class="float-right"><small>Directions</small></span></a>
-                    <i class="fas fa-map-marker-alt"></i> Butterfield Street, Herston 4029
-                </p>
+    <div class="container facility-details" id="eds">
+        <script id="ed-template" type="text/x-handlebars-template">
+            <div class="row">
+                <div class="col-12 bg-white">
+                    <p>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination={{address}}">
+                        <span class="float-right"><small>Directions</small></span></a>
+                        <i class="fas fa-map-marker-alt"></i> {{address}}
+                    </p>
+                </div>
+                <div class="col-12 bg-white">
+                    <p><i class="far fa-clock"></i> Open 24 hours</p>
+                </div>       
+                {{#if contact}}
+                <div class="col-12 bg-white">
+                    <p>
+                        <span class="float-right">
+                            <a href="tel:{{callContact}}"><small>Call</small></a>
+                        </span>
+                        <i class="fas fa-phone"></i> {{contact}}
+                    </p>
+                </div>       
+                {{/if}}                       
             </div>
-            <div class="col-12 bg-white">
-                <p><i class="far fa-clock"></i> Open 24 hours</p>
-            </div>       
-            <div class="col-12 bg-white">
-                <p>
-                    <span class="float-right">
-                        <a href="tel:36466500"><small>Call</small></a>
-                    </span>
-                    <i class="fas fa-phone"></i> (07) 3646 6500
-                </p>
-            </div>                              
-        </div>
+        </script>
     </div>
 
     <div class="container bg-white popular-times">
@@ -228,29 +258,17 @@
         </div>
     </div>
     
-    <div class="scrolling-wrapper m-b-small">
-
-        <div class="mini-card shadow-sm bg-white">
-            <p><strong>The Prince Charles Hospital</strong></p>
-            <p>Adult, Paediatric, Mental Health</p>
-            <p>60 minutes waiting time</p>
-            <p>Open</p>
-        </div>
-
-        <div class="mini-card shadow-sm bg-white">
-            <p><strong>Caboolture Hospital</strong></p>
-            <p>Adult, Paediatric, Mental Health</p>
-            <p>60 minutes waiting time</p>
-            <p>Open</p>
-        </div>            
-
-        <div class="mini-card shadow-sm bg-white">
-            <p><strong>Kilcoy Hospital</strong></p>
-            <p>Adult, Paediatric, Mental Health</p>
-            <p>60 minutes waiting time</p>
-            <p>Open</p>
-        </div>       
-
+    <div class="scrolling-wrapper m-b-small" id="alternativeFacilities">
+        <script id="alternativeFacilitiesList" type="text/x-handlebars-template">
+            <a href="template.html?id={{cells.PlacesID}}">
+                <div class="mini-card shadow-sm bg-white">
+                    <p><strong>{{cells.HospitalName}}</strong></p>
+                    <p>{{cells.Services}}</p>
+                    <p>{{cells.Status}} approx waiting time</p>
+                    <p>Open</p>
+                </div>    
+            </a>
+        </script>
     </div>
     
     <div class="container">
@@ -279,11 +297,81 @@
         var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
         $("#hospitalPage").sheetrock({
             url: mySpreadsheet,
-            query: "select * where A = " + facilityID,
+            query: "select * where C = '" + facilityID + "'",
             rowTemplate: templateHospitalName
         });            
 
-        console.log(mySpreadsheet);
-    </script>           
+        var templateHospitalName2 = Handlebars.compile($('#hospitalDetails2').html());
+        $("#hospitalPage2").sheetrock({
+            url: mySpreadsheet,
+            query: "select * where C = '" + facilityID + "'",
+            rowTemplate: templateHospitalName2
+        });             
+
+        var templateAlternativeFacilities = Handlebars.compile($('#alternativeFacilitiesList').html());
+        $("#alternativeFacilities").sheetrock({
+            url: mySpreadsheet,
+            query: "select *",
+            rowTemplate: templateAlternativeFacilities
+        });
+
+        window.initLoadDetails = function(){
+            var service = new google.maps.places.PlacesService($('#map-helper').get(0)); 
+            var edtemplate = Handlebars.compile($('#ed-template').html());
+            var ed2template = Handlebars.compile($('#ed2-template').html());
+            var facilityDetails = [];
+
+            var photosURL; var contactDisplay; var callDisplay; 
+            
+            function findDetail(varPlaceID) {
+                return new Promise(function(resolve,reject) {
+                    service.getDetails({placeId: varPlaceID}, function(place,status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            
+                            if (typeof place.photos === 'object' && place.photos !== null) 
+                            photosURL = place.photos[0].getUrl({ 'maxWidth': 600, 'maxHeight': 400 });
+                            else photosURL = 'https://metronorth.health.qld.gov.au/wp-content/uploads/2017/10/banners-home-mn.jpg';
+                            
+                            if (typeof place.international_phone_number === 'object' && place.international_phone_number !== null) {
+                                contactDisplay = place.international_phone_number; 
+                                callDisplay = place.formatted_phone_number;
+                            } else {
+                                contactDisplay = false;
+                                callDisplay = false;
+                            }
+                            
+                            var x = {
+                                name: place.name, 
+                                contact: contactDisplay,
+                                callContact: callDisplay,
+                                address: place.formatted_address,
+                                website: place.website,
+                                photoReference: photosURL,
+                            };
+                            resolve(x);
+                        } else {
+                        reject(status);
+                        }
+                    });
+                });
+            } 
+
+            var promises = [];
+            promises.push(findDetail(getUrlParameter('id')));
+
+            Promise.all(promises)
+            .then(function(results){
+                facilityDetails = results;
+                console.log(facilityDetails[0]);
+                var compiledData = edtemplate(facilityDetails[0]);
+                var compiled2Data = ed2template(facilityDetails[0]);
+
+                document.getElementById('eds').innerHTML = compiledData;    
+                document.getElementById('eds2').innerHTML = compiled2Data;
+            });
+
+        }
+    </script>
+
 </body>
 </html>
