@@ -165,8 +165,10 @@ function initAutocomplete() {
       }
     }
 
-    var iconImage = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-
+    var hospitalIcon = {
+      url: "http://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+      scaledSize: new google.maps.Size(25,25),
+    }
 
     // Create markers which should be visible
     for (var i = 0; i < hospitals.length; i++) {
@@ -178,7 +180,7 @@ function initAutocomplete() {
           position: myLatLng,
           map: map,
           title: placeLatLng[0],
-          icon: iconImage,
+          icon: hospitalIcon,
         });
         place_markers.push(marker);
       }
