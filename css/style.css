@@ -279,3 +279,11 @@ a div.results-box h4 {
 .popular-times {
     padding-bottom: 15px;
 }
+
+.popular-times h5 {
+    margin: 5px 0px 0px 0px !important;
+}
+
+.popular-times small {
+    opacity: 0.8;
+}
