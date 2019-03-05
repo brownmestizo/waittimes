@@ -36,6 +36,7 @@
             var service = new google.maps.places.PlacesService($('#map-helper').get(0)); 
             var edtemplate = Handlebars.compile($('#ed-template').html());
             var ed2template = Handlebars.compile($('#ed2-template').html());
+            var ed3template = Handlebars.compile($('#ed3-template').html());
             var facilityDetails = [];
 
             var photosURL; var contactDisplay; var callDisplay; 
@@ -82,9 +83,11 @@
                 console.log(facilityDetails[0]);
                 var compiledData = edtemplate(facilityDetails[0]);
                 var compiled2Data = ed2template(facilityDetails[0]);
-
+                var compiled3Data = ed3template(facilityDetails[0]);
+                
                 document.getElementById('eds').innerHTML = compiledData;    
                 document.getElementById('eds2').innerHTML = compiled2Data;
+                document.getElementById('eds3').innerHTML = compiled3Data;
 
                 $('#dateToday').text(today);
             });

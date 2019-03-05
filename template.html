@@ -166,8 +166,12 @@
     <div class="container bg-white below-card">
         <div class="row">
             <div class="col-6">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Royal+Brisbane+and+Women's+Hospital+Emergency+Room" class="btn btn-primary btn-block">
-                    <i class="fas fa-directions"></i> Get directions</a>
+                <div id="eds3">
+                    <script id="ed3-template" type="text/x-handlebars-template">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination={{name}}" class="btn btn-primary btn-block">
+                        <i class="fas fa-directions"></i> Get directions</a>
+                    </script>
+                </div>
             </div>
             <div class="col-6">            
                 <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share"></i> Share</a>                           
