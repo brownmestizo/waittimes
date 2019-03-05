@@ -45,7 +45,6 @@
     </div>
 
     <div id="map-helper"></div>
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initLoadDetails&fields=name,rating,formatted_address,opening_hours" async defer></script>    
 
 
@@ -68,29 +67,35 @@
         <div class="row">
             <div class="col-12">
                 <div class="card shadow bg-white rounded">
-                    <div class="card-body" id="hospitalPage">      
-                        <script id="hospitalDetails" type="text/x-handlebars-template">          
-                            <h4>{{cells.HospitalName}}</h4>
-                            <p>
-                                <span class="inline">
-                                    <i class="fas fa-car-alt"></i> {{cells.DriveTime}}-min drive from Brisbane City
-                                </span>
-                            </p> 
-                            <p>
-                                <span class="inline">
-                                    <i class="far fa-clock"></i> Open 24 hours
-                                </span>                    
-                            </p>      
-                            <p>
+                    <div class="card-body" id="facilityOverviewContainer">      
+                        <script id="facilityOverview-template" type="text/x-handlebars-template">  
+                            <h4 class="m-b-none">{{name}}</h4> 
+                            <p>{{address}}</p>
+                            <p><i class="fas fa-file-invoice-dollar"></i> Bulk billing only</p>
+                            {{#if openNow}}
+                                <p class="ok">Open now
+                                {{#with (lookup openingHours day) as |day|}}
+                                    {{this}}
+                                {{/with}}
+                                </p>
+                            {{/if}}
+                            {{#unless openNow}}
+                                <p><span class="error">Closed  
                                 
-                                <span class="inline">
-                                    <i class="fas fa-file-invoice-dollar"></i> Bulk billing only
-                                </span>                                
-                            </p>
-                            <hr />
-                            <p style="margin-top: 10px;">  
-                                {{{splitTitle cells.Services}}} 
-                            </p>
+                                {{#if closedToday}}
+                                    right now.</span>
+                                    <br />
+                                    Opens at
+                                    {{#with (lookup openingHours day) as |day|}}
+                                        {{this}}
+                                    {{/with}}               
+                                {{/if}}      
+
+                                {{#unless closedToday}}
+                                    today</span>
+                                {{/unless}}                                           
+                                </p>
+                            {{/unless}}
                         </script>           
                     </div>                 
                 </div>
@@ -173,13 +178,13 @@
             </div>                        
         </div>
 
-        <div class="row activity-indicator" id="">
-            <script id="" type="text/x-handlebars-template">          
-                <div class="col-12">
+        <div class="row activity-indicator">
+            <div class="col-12 bg-white">
 
+                <p><strong>Available services:</strong></p>
+                <p>General Practice, Adult, Mental, Maternity, Paediatric</p>
 
-                </div>
-            </script>
+            </div>
         </div>
 
     </div>

@@ -37,10 +37,6 @@ function initAutocomplete() {
 
   var tdate = new Date();
   var dd = tdate.getDay();
-
-  function arrayContains(needle, arrhaystack) {
-      return (arrhaystack.indexOf(needle) > -1);
-  }
  
   function findDetail(varPlaceID) {
     return new Promise(function(resolve,reject) {
