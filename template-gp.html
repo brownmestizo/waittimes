@@ -1,0 +1,274 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wait times app</title>
+    <meta name="description" content="Wait times app">
+    <meta name="author" content="CSDS">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">    
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>   
+    <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="scripts/functions.js"></script>
+    <script type="text/javascript" src="scripts/charts.js"></script>
+</head>
+
+
+<body>
+
+    <div class="sidebar shadow" style="display:none;" id="sidebar">
+        <ul>
+            <li onClick="sidebar_close()">Close</li>
+            <li>Help</li>
+            <li>About this project</li>
+        </ul>      
+    </div>
+            
+    <div class="header">
+        <i class="fas fa-bars float-right" onclick="sidebar_open()"></i>
+        <a href="index.html"><h4>Health Service Finder</h4></a>
+    </div>
+
+    <div id="map-helper"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initLoadDetails&fields=name,rating,formatted_address,opening_hours" async defer></script>    
+
+
+    <div id="eds2">
+        <script id="ed2-template" type="text/x-handlebars-template">
+            <div class="container facility-bg" style="background-image: url({{photoReference}});">
+                <div class="overlay"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="index.html">
+                            <p class="back"><i class="fas fa-arrow-left"></i> Back</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </script>
+    </div>
+
+    <div class="container container-facility-card">
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow bg-white rounded">
+                    <div class="card-body" id="hospitalPage">      
+                        <script id="hospitalDetails" type="text/x-handlebars-template">          
+                            <h4>{{cells.HospitalName}}</h4>
+                            <p>
+                                <span class="inline">
+                                    <i class="fas fa-car-alt"></i> {{cells.DriveTime}}-min drive from Brisbane City
+                                </span>
+                            </p> 
+                            <p>
+                                <span class="inline">
+                                    <i class="far fa-clock"></i> Open 24 hours
+                                </span>                    
+                            </p>      
+                            <p>
+                                
+                                <span class="inline">
+                                    <i class="fas fa-file-invoice-dollar"></i> Bulk billing only
+                                </span>                                
+                            </p>
+                            <hr />
+                            <p style="margin-top: 10px;">  
+                                {{{splitTitle cells.Services}}} 
+                            </p>
+                        </script>           
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="shareModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Share this page</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    <a href="sms:0481168759?&body=Check this page out">
+                        <i class="fas fa-comment"></i> SMS
+                    </a>
+                </p>
+                <hr />
+                <p>
+                    <a href="https://m.facebook.com/messages/compose?ids=brownmestizo">
+                        <i class="fab fa-facebook-messenger"></i> Messenger
+                    </a>
+                </p> 
+                <hr />                
+                <p>
+                    <a href="mailto:brownmestizo@gmail.com?subject=Check this page out">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </p>    
+                <hr />
+                <p>
+                    <a href="whatsapp://send?abid=0481168759&text=Check this page out">
+                        <i class="fab fa-whatsapp-square"></i> Whatsapp
+                    </a>
+                </p>     
+                <hr />
+                <p>
+                    <a href="viber://pa?chatURI=[public account URI]&text=Check this page out">
+                        <i class="fab fa-viber"></i> Viber
+                    </a>
+                </p>    
+                <hr />
+                <p>
+                    <a href="https://telegram.me/brownmestizo">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                </p>    
+                <hr />
+                <p>
+                    <a href="weixin://dl/chat?brownmestizo">
+                        <i class="fab fa-weixin"></i> Weixin
+                    </a>
+                </p>
+                
+            </div>
+
+          </div>
+        </div>
+    </div>    
+
+    <div class="container bg-white below-card">
+        <div class="row">
+            <div class="col-6">
+                <div id="eds3">
+                    <script id="ed3-template" type="text/x-handlebars-template">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination={{name}}" class="btn btn-primary btn-block">
+                        <i class="fas fa-directions"></i> Get directions</a>
+                    </script>
+                </div>
+            </div>
+            <div class="col-6">            
+                <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share"></i> Share</a>                           
+            </div>                        
+        </div>
+
+        <div class="row activity-indicator" id="">
+            <script id="" type="text/x-handlebars-template">          
+                <div class="col-12">
+
+
+                </div>
+            </script>
+        </div>
+
+    </div>
+
+    <div class="container facility-details" id="eds">
+        <script id="ed-template" type="text/x-handlebars-template">
+            <div class="row">
+                <div class="col-12 bg-white">
+                    <p>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination={{address}}">
+                        <span class="float-right"><small>Directions</small></span></a>
+                        <i class="fas fa-map-marker-alt"></i> {{address}}
+                    </p>
+                </div>
+                <div class="col-12 bg-white">
+                    <p><i class="far fa-clock"></i> Open 24 hours</p>
+                </div>       
+                {{#if contact}}
+                <div class="col-12 bg-white">
+                    <p>
+                        <span class="float-right">
+                            <a href="tel:{{callContact}}"><small>Call</small></a>
+                        </span>
+                        <i class="fas fa-phone"></i> {{contact}}
+                    </p>
+                </div>       
+                {{/if}}                       
+            </div>
+        </script>
+    </div>
+
+    <div class="container bg-white popular-times">
+        <div class="row">
+            <div class="col-12 header-row">
+                <span class="float-right">
+                    <h5>
+                        <i class="fas fa-question-circle"></i>
+                    </h5>
+                </span>
+                <h5>
+                    Popular times: <span id="dayOfWeek"></span>
+                </h5>
+                <small>Tap hours to see average waiting times</small>
+            </div>
+            <div class="col-12"> 
+                <div class="owl-carousel owl-theme">
+                    <div class="item" id="chartContainer1" style="height: 170px; width: 100%;"></div>      
+                    <div class="item" id="chartContainer2" style="height: 170px; width: 100%;"></div>
+                    <div class="item" id="chartContainer3" style="height: 170px; width: 100%;"></div>      
+                    <div class="item" id="chartContainer4" style="height: 170px; width: 100%;"></div>
+                    <div class="item" id="chartContainer5" style="height: 170px; width: 100%;"></div>      
+                    <div class="item" id="chartContainer6" style="height: 170px; width: 100%;"></div>
+                    <div class="item" id="chartContainer7" style="height: 170px; width: 100%;"></div>
+                </div>
+            </div>                                   
+        </div>
+    </div>
+
+    <div class="container bg-white other-facilities">
+        <div class="row">
+            <div class="col-12 header-row">
+                <span class="float-right"><h5><i class="fas fa-question-circle"></i></h5></span>
+                <h5>Other nearby healthcare facilities</h5>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scrolling-wrapper m-b-small" id="alternativeFacilities">
+        <script id="alternativeFacilitiesList" type="text/x-handlebars-template">
+            <a href="template.html?id={{cells.PlacesID}}">
+                <div class="mini-card shadow-sm bg-white">
+                    <p><strong>{{cells.HospitalName}}</strong></p>
+                    <p>{{cells.Services}}</p>
+                    <p>{{cells.Status}} approx waiting time</p>
+                    <p>Open</p>
+                </div>    
+            </a>
+        </script>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center p-3">
+                <img src="images/logo.png" />
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="scripts/template-gp.js"></script>
+</body>
+</html>
