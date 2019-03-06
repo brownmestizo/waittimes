@@ -66,7 +66,10 @@
                 {{#each this}}
                     <a href="template-gp.html?id={{placeID}}">
                         <div class="results-box shadow-sm">
-                            <h4 class="m-b-none">{{name}}</h4> 
+                            <h4 class="m-b-none">
+                                <img src="https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png" style="width: 20px; margin-top: -5px;" />
+                                {{name}}
+                            </h4> 
                             <p>{{address}}</p>
                             <p><i class="fas fa-file-invoice-dollar"></i> Bulk billing only</p>
                             {{#if openNow}}
@@ -104,7 +107,9 @@
             <script id="item-template" type="text/x-handlebars-template">
                 <a href="template.html?id={{cells.PlacesID}}">
                     <div class="results-box shadow-sm">
-                        <h4>{{cells.HospitalName}}</h4> 
+                        <h4>
+                            <img src="http://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png" style="width: 20px; margin-top: -5px;" />
+                            {{cells.HospitalName}}</h4> 
                         <p>{{cells.Services}}</p>
                         <p><i class="fas fa-file-invoice-dollar"></i> Bulk billing only</p>                        
                         <p>

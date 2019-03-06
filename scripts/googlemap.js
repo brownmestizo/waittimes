@@ -37,18 +37,32 @@ function initAutocomplete() {
 
   var tdate = new Date();
   var dd = tdate.getDay();
- 
+
+  var hospitalIcon = {
+    url: "http://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    scaledSize: new google.maps.Size(25,25),
+  }
+
+  var gpIcon = {
+    url: "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+    scaledSize: new google.maps.Size(25,25),
+  }
+
   function findDetail(varPlaceID) {
     return new Promise(function(resolve,reject) {
       service.getDetails({placeId: varPlaceID}, function(place,status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             var x = {
               name: place.name, 
+              addressComponents: place.address_components,
               contact: place.international_phone_number,
               openNow: place.opening_hours['open_now'],
               openingHours: place.opening_hours['weekday_text'],
               closedToday: (place.opening_hours['weekday_text'][dd-1]).indexOf("Closed"),
-              address: place.formatted_address,
+              address: place.address_components[1]['short_name'] + " " + 
+              place.address_components[0]['short_name'] + " " + 
+              place.address_components[2]['short_name'] + " " +
+              place.address_components[3]['short_name'],
               website: place.website,
               day: dd-1,
               tomorrow: dd,
@@ -165,11 +179,6 @@ function initAutocomplete() {
       }
     }
 
-    var hospitalIcon = {
-      url: "http://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
-      scaledSize: new google.maps.Size(25,25),
-    }
-
     // Create markers which should be visible
     for (var i = 0; i < hospitals.length; i++) {
       var placeLatLng = hospitals[i];
@@ -186,7 +195,31 @@ function initAutocomplete() {
       }
     }
     // end places markers
+
+    for (var i = 0; i < facilities.length; i++) {
+      service.getDetails({placeId: facilities[i]}, function(place,status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+            var myLatLng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+            if (bounds.contains(myLatLng)) {
+              var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: placeLatLng[0],
+                icon: gpIcon,
+              });
+              place_markers.push(marker);
+            }    
+        } 
+      });   
+    }
+
+
   });
+
+
+
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

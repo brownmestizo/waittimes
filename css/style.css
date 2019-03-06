@@ -36,6 +36,11 @@ a div.results-box h4 {
     color: #333;
 }
 
+.btn-primary {
+    border: none !important;
+}
+
+
 .sidebar {
     height: 100%;
     width: 50%;
