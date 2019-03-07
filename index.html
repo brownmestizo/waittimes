@@ -39,10 +39,19 @@
         <input id="pac-input" class="controls" type="text" placeholder="Enter your location">
     </div>
 
+    <div class="container emergency">
+        <div class="row">
+            <div class="col-12">
+                <p><i class="fas fa-exclamation-circle"></i> If you require emergency, <a href="tel:000">call 000</a></p>
+            </div>
+        </div>
+    </div>
+
     
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initAutocomplete&fields=name,rating,formatted_address,opening_hours" async defer></script>
 
+ 
     <div id="results">
         <div class="container">
             <div class="row">
@@ -71,16 +80,18 @@
                                 {{name}}
                             </h4> 
                             <p>{{address}}</p>
-                            <p><i class="fas fa-file-invoice-dollar"></i> Bulk billing only</p>
+                            <p><i class="fas fa-car-alt"></i> 10 min drive</p>
+                            <p><i class="fas fa-file-invoice-dollar"></i> Bulk billing</p>
+                            <p><i class="fas fa-clock"></i> No available wait time</p>
                             {{#if openNow}}
-                                <p class="ok">Open now
+                                <p class="ok"><i class="far fa-clock"></i>  Open now
                                 {{#with (lookup openingHours day) as |day|}}
                                     {{this}}
                                 {{/with}}
                                 </p>
                             {{/if}}
                             {{#unless openNow}}
-                                <p><span class="error">Closed  
+                                <p><span class="error"><i class="far fa-clock"></i> Closed  
                                 
                                 {{#if closedToday}}
                                     right now.</span>
@@ -114,9 +125,9 @@
                         <p><i class="fas fa-file-invoice-dollar"></i> Bulk billing only</p>                        
                         <p>
                             <span class="inline">
-                                <i class="fas fa-clock"></i> {{cells.Status}} approx waiting time
+                                <i class="fas fa-clock"></i> {{cells.Status}} wait time
                             </span> <br />
-                            <i class="fas fa-car-alt"></i> {{cells.DriveTime}}-min drive
+                            <i class="fas fa-car-alt"></i> {{cells.DriveTime}} min drive
                         </p> 
                         <p>
                             <span class="inline">

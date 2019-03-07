@@ -40,6 +40,9 @@ a div.results-box h4 {
     border: none !important;
 }
 
+.badge-secondary {
+    margin-bottom: 0.5em;
+}
 
 .sidebar {
     height: 100%;
@@ -80,6 +83,26 @@ a div.results-box h4 {
 
 #map {
     height: 40%;
+}
+
+
+.emergency {
+    background-color: #dc5556;
+    margin-bottom: 0px !important;
+}
+
+.emergency p {
+    color: #FFF;
+}
+
+.emergency .col-12 {
+    padding: 10px;
+}
+
+.emergency a {
+    color: #FFF;
+    display: inline-block;
+    border-bottom: 1px solid #FFF;
 }
 
 .header {
@@ -168,11 +191,7 @@ a div.results-box h4 {
 }
 
 .facility-bg {
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
     height: 200px;
-    position: relative;
 }
 
 .overlay {
