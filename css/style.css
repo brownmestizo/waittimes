@@ -192,6 +192,9 @@ a div.results-box h4 {
 
 .facility-bg {
     height: 200px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .overlay {
@@ -211,6 +214,7 @@ a div.results-box h4 {
 
 .facility-bg a {
     color: #FFF;
+
 }
 
 .facility-bg .back {
@@ -231,7 +235,7 @@ a div.results-box h4 {
 }
 
 .below-card {
-    margin-top: -50px;
+    margin-top: -80px;
     padding-top: 70px;
     padding-bottom: 15px;    
 }
