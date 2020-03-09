@@ -36,10 +36,14 @@
             var service = new google.maps.places.PlacesService($('#map-helper').get(0)); 
             var edtemplate = Handlebars.compile($('#ed-template').html());
             var ed2template = Handlebars.compile($('#ed2-template').html());
+            
+
             var ed3template = Handlebars.compile($('#ed3-template').html());
             var facilityDetails = [];
 
-            var photosURL; var contactDisplay; var callDisplay; 
+            var photosURL; 
+            var contactDisplay; 
+            var callDisplay; 
             
             function findDetail(varPlaceID) {
                 return new Promise(function(resolve,reject) {
@@ -81,6 +85,8 @@
             .then(function(results){
                 facilityDetails = results;
                 console.log(facilityDetails[0]);
+                console.log(ed2template(facilityDetails[0]));
+                
                 var compiledData = edtemplate(facilityDetails[0]);
                 var compiled2Data = ed2template(facilityDetails[0]);
                 var compiled3Data = ed3template(facilityDetails[0]);
