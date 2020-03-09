@@ -39,7 +39,7 @@ function initAutocomplete() {
   var dd = tdate.getDay();
 
   var hospitalIcon = {
-    url: "http://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    url: "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
     scaledSize: new google.maps.Size(25,25),
   }
 

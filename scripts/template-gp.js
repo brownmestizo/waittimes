@@ -1,5 +1,6 @@
 var facilityID = getUrlParameter('id');
-var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
+var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing';
+
 
 var templateAlternativeFacilities = Handlebars.compile($('#alternativeFacilitiesList').html());
 $("#alternativeFacilities").sheetrock({
