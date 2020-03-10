@@ -48,12 +48,11 @@
 
     <div id="map-helper"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg9H6lDhbuC2TD0yEoiqdeetsbn0-ibE8&libraries=places&callback=initLoadDetails&fields=name,rating,formatted_address,opening_hours" async defer></script>    
 
 
     <div id="eds2">
         <script id="ed2-template" type="text/x-handlebars-template">
-            <div class="container facility-bg">
+            <div class="container facility-bg" style="background-image: url({{photoReference}});">
                 <div class="row">
                     <div class="col-12">
                         <a href="index.html">
@@ -287,5 +286,7 @@
 
 
     <script defer type="text/javascript" src="scripts/template.js"></script>
+    <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3R8b5BpjaKMTUEj4mM55u-p4ipxiy0Ds&libraries=places&callback=initLoadDetails&fields=name,rating,formatted_address,opening_hours"></script>    
+
 </body>
 </html>

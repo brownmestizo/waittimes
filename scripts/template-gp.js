@@ -1,6 +1,7 @@
 var facilityID = getUrlParameter('id');
 var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1lDN_h6l1oFsxE_lgP2MxWZsJBpWeQk5R5_mu_A-BiTQ/edit?usp=sharing#gid=0';
 
+
 var templateAlternativeFacilities = Handlebars.compile($('#alternativeFacilitiesList').html());
 $("#alternativeFacilities").sheetrock({
     url: mySpreadsheet,
@@ -33,7 +34,7 @@ window.initLoadDetails = function(){
                     
                     if (typeof place.photos === 'object' && place.photos !== null) 
                     photosURL = place.photos[0].getUrl({ 'maxWidth': 600, 'maxHeight': 400 });
-                    else photosURL = 'https://metronorth.health.qld.gov.au/wp-content/uploads/2017/10/banners-home-mn.jpg';
+                    else photosURL = "https://metronorth.health.qld.gov.au/wp-content/uploads/2017/10/banners-home-mn.jpg";
                     
                     if (typeof place.formatted_phone_number === 'object' || place.formatted_phone_number !== null) {
                         contactDisplay = place.international_phone_number; 
@@ -54,6 +55,7 @@ window.initLoadDetails = function(){
                         day: dd-1,
                         tomorrow: dd,
                         placeID: varPlaceID,
+                        photoReference: photosURL,
                     };
                     resolve(x);
                 } else {
